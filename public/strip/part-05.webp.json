@@ -1,0 +1,4 @@
+{
+  "prompt": "Part 05: no generation. Pixels of stage 04 where it differs from stage 05 (difference mask, flight-lab/make_strip_layers.py), then cleaned by flight-lab/refine_strip_layers.py: morphological opening and removal of detached pieces, so one assembly lifts.",
+  "createdAt": "2026-09-27T17:01:05.997Z"
+}

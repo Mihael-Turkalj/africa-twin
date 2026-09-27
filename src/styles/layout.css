@@ -1,0 +1,64 @@
+/* Measured layout of the approved comp (comp-2b), from Impeccable's build-phase scaffold: % of the 2752 x 1536 frame. */
+:root {
+  --r-kraft-x: 1.310%; --r-kraft-y: 74.670%; --r-kraft-w: 7.810%; --r-kraft-h: 14.000%;
+  --r-headline-card-x: 3.920%; --r-headline-card-y: 7.030%; --r-headline-card-w: 21.950%; --r-headline-card-h: 61.980%;
+  --r-headline-x: 5.850%; --r-headline-y: 10.290%; --r-headline-w: 14.860%; --r-headline-h: 21.480%;
+  --r-headline-cap: 86px; --r-headline-font: 122px; --r-headline-family: 'PT Sans Narrow'; --r-headline-weight: 700;
+  --r-rule-top-x: 6.000%; --r-rule-top-y: 33.850%; --r-rule-top-w: 16.130%; --r-rule-top-h: 0.520%;
+  --r-subline-x: 5.850%; --r-subline-y: 36.260%; --r-subline-w: 14.140%; --r-subline-h: 7.100%;
+  --r-subline-cap: 37px; --r-subline-font: 53px;
+  --r-rule-bottom-x: 6.000%; --r-rule-bottom-y: 60.290%; --r-rule-bottom-w: 16.130%; --r-rule-bottom-h: 0.520%;
+  --r-note-x: 5.850%; --r-note-y: 61.460%; --r-note-w: 16.030%; --r-note-h: 2.540%;
+  --r-note-cap: 20px; --r-note-font: 30px;
+  --r-bike-x: 30.160%; --r-bike-y: 9.770%; --r-bike-w: 42.880%; --r-bike-h: 53.060%;
+  --r-plinth-x: 25.980%; --r-plinth-y: 57.810%; --r-plinth-w: 50.510%; --r-plinth-h: 10.420%;
+  --r-plinth-shadow-x: 58.140%; --r-plinth-shadow-y: 67.710%; --r-plinth-shadow-w: 23.260%; --r-plinth-shadow-h: 13.020%;
+  --r-spec-1-x: 54.140%; --r-spec-1-y: 66.340%; --r-spec-1-w: 6.830%; --r-spec-1-h: 5.400%;
+  --r-spec-2-x: 61.120%; --r-spec-2-y: 66.340%; --r-spec-2-w: 5.700%; --r-spec-2-h: 5.400%;
+  --r-spec-3-x: 66.970%; --r-spec-3-y: 66.340%; --r-spec-3-w: 7.850%; --r-spec-3-h: 5.400%;
+  --r-spec-3-cap: 25px; --r-spec-3-font: 36px;
+  --r-crank-box-x: 40.990%; --r-crank-box-y: 65.360%; --r-crank-box-w: 19.080%; --r-crank-box-h: 24.740%;
+  --r-crank-arm-x: 48.260%; --r-crank-arm-y: 72.400%; --r-crank-arm-w: 13.810%; --r-crank-arm-h: 10.740%;
+  --r-rail-x: 78.050%; --r-rail-y: 6.250%; --r-rail-w: 11.990%; --r-rail-h: 86.590%;
+  --r-rail-label-x: 79.690%; --r-rail-label-y: 14.910%; --r-rail-label-w: 1.820%; --r-rail-label-h: 22.720%;
+  --r-rail-label-cap: 19px; --r-rail-label-font: 28px;
+  --r-tab-01-x: 81.390%; --r-tab-01-y: 15.880%; --r-tab-01-w: 14.680%; --r-tab-01-h: 6.640%;
+  --r-tab-02-x: 81.390%; --r-tab-02-y: 22.850%; --r-tab-02-w: 14.680%; --r-tab-02-h: 6.440%;
+  --r-tab-03-x: 81.390%; --r-tab-03-y: 29.620%; --r-tab-03-w: 14.680%; --r-tab-03-h: 6.440%;
+  --r-tab-04-x: 81.390%; --r-tab-04-y: 36.390%; --r-tab-04-w: 14.680%; --r-tab-04-h: 6.440%;
+  --r-tab-05-x: 81.390%; --r-tab-05-y: 43.160%; --r-tab-05-w: 14.680%; --r-tab-05-h: 6.440%;
+  --r-tab-06-x: 81.390%; --r-tab-06-y: 49.940%; --r-tab-06-w: 14.680%; --r-tab-06-h: 6.510%;
+  --r-tab-07-x: 81.390%; --r-tab-07-y: 56.710%; --r-tab-07-w: 14.680%; --r-tab-07-h: 6.440%;
+  --r-tab-08-x: 81.390%; --r-tab-08-y: 63.480%; --r-tab-08-w: 14.680%; --r-tab-08-h: 6.440%;
+  --r-tab-09-x: 81.390%; --r-tab-09-y: 70.250%; --r-tab-09-w: 14.680%; --r-tab-09-h: 6.510%;
+  --r-tab-10-x: 81.390%; --r-tab-10-y: 76.890%; --r-tab-10-w: 14.680%; --r-tab-10-h: 6.640%;
+}
+
+.comp-frame { position: relative; width: 100%; aspect-ratio: 2752 / 1536; overflow: hidden; }
+.r-kraft { position: absolute; left: var(--r-kraft-x); top: var(--r-kraft-y); width: var(--r-kraft-w); height: var(--r-kraft-h); }
+.r-headline-card { position: absolute; left: var(--r-headline-card-x); top: var(--r-headline-card-y); width: var(--r-headline-card-w); height: var(--r-headline-card-h); }
+.r-headline { position: absolute; left: var(--r-headline-x); top: var(--r-headline-y); width: var(--r-headline-w); height: var(--r-headline-h); }
+.r-rule-top { position: absolute; left: var(--r-rule-top-x); top: var(--r-rule-top-y); width: var(--r-rule-top-w); height: var(--r-rule-top-h); }
+.r-subline { position: absolute; left: var(--r-subline-x); top: var(--r-subline-y); width: var(--r-subline-w); height: var(--r-subline-h); }
+.r-rule-bottom { position: absolute; left: var(--r-rule-bottom-x); top: var(--r-rule-bottom-y); width: var(--r-rule-bottom-w); height: var(--r-rule-bottom-h); }
+.r-note { position: absolute; left: var(--r-note-x); top: var(--r-note-y); width: var(--r-note-w); height: var(--r-note-h); }
+.r-bike { position: absolute; left: var(--r-bike-x); top: var(--r-bike-y); width: var(--r-bike-w); height: var(--r-bike-h); }
+.r-plinth { position: absolute; left: var(--r-plinth-x); top: var(--r-plinth-y); width: var(--r-plinth-w); height: var(--r-plinth-h); }
+.r-plinth-shadow { position: absolute; left: var(--r-plinth-shadow-x); top: var(--r-plinth-shadow-y); width: var(--r-plinth-shadow-w); height: var(--r-plinth-shadow-h); }
+.r-spec-1 { position: absolute; left: var(--r-spec-1-x); top: var(--r-spec-1-y); width: var(--r-spec-1-w); height: var(--r-spec-1-h); }
+.r-spec-2 { position: absolute; left: var(--r-spec-2-x); top: var(--r-spec-2-y); width: var(--r-spec-2-w); height: var(--r-spec-2-h); }
+.r-spec-3 { position: absolute; left: var(--r-spec-3-x); top: var(--r-spec-3-y); width: var(--r-spec-3-w); height: var(--r-spec-3-h); }
+.r-crank-box { position: absolute; left: var(--r-crank-box-x); top: var(--r-crank-box-y); width: var(--r-crank-box-w); height: var(--r-crank-box-h); }
+.r-crank-arm { position: absolute; left: var(--r-crank-arm-x); top: var(--r-crank-arm-y); width: var(--r-crank-arm-w); height: var(--r-crank-arm-h); }
+.r-rail { position: absolute; left: var(--r-rail-x); top: var(--r-rail-y); width: var(--r-rail-w); height: var(--r-rail-h); }
+.r-rail-label { position: absolute; left: var(--r-rail-label-x); top: var(--r-rail-label-y); width: var(--r-rail-label-w); height: var(--r-rail-label-h); }
+.r-tab-01 { position: absolute; left: var(--r-tab-01-x); top: var(--r-tab-01-y); width: var(--r-tab-01-w); height: var(--r-tab-01-h); }
+.r-tab-02 { position: absolute; left: var(--r-tab-02-x); top: var(--r-tab-02-y); width: var(--r-tab-02-w); height: var(--r-tab-02-h); }
+.r-tab-03 { position: absolute; left: var(--r-tab-03-x); top: var(--r-tab-03-y); width: var(--r-tab-03-w); height: var(--r-tab-03-h); }
+.r-tab-04 { position: absolute; left: var(--r-tab-04-x); top: var(--r-tab-04-y); width: var(--r-tab-04-w); height: var(--r-tab-04-h); }
+.r-tab-05 { position: absolute; left: var(--r-tab-05-x); top: var(--r-tab-05-y); width: var(--r-tab-05-w); height: var(--r-tab-05-h); }
+.r-tab-06 { position: absolute; left: var(--r-tab-06-x); top: var(--r-tab-06-y); width: var(--r-tab-06-w); height: var(--r-tab-06-h); }
+.r-tab-07 { position: absolute; left: var(--r-tab-07-x); top: var(--r-tab-07-y); width: var(--r-tab-07-w); height: var(--r-tab-07-h); }
+.r-tab-08 { position: absolute; left: var(--r-tab-08-x); top: var(--r-tab-08-y); width: var(--r-tab-08-w); height: var(--r-tab-08-h); }
+.r-tab-09 { position: absolute; left: var(--r-tab-09-x); top: var(--r-tab-09-y); width: var(--r-tab-09-w); height: var(--r-tab-09-h); }
+.r-tab-10 { position: absolute; left: var(--r-tab-10-x); top: var(--r-tab-10-y); width: var(--r-tab-10-w); height: var(--r-tab-10-h); }

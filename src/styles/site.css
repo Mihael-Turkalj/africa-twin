@@ -1,0 +1,1344 @@
+/* Crank Automaton: cut paper on kraft board. Sizes inside the comp frame are comp pixels times --u,
+   so the whole first viewport scales with the frame's width. */
+
+:root {
+  --kraft: #c6a284;
+  --card: #cfae90;
+  --tab: #b99374;
+  --ink: #452820;
+  --ink-soft: #614636;
+  --ink-deep: #3b190d;
+  --rail: #e6d9d1;
+  --crimson: #aa283f;
+  --crimson-ink: #f7dfe3;
+  --shadow: 58 32 18;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --face-display: 'PT Sans Narrow', 'Arial Narrow', sans-serif;
+  --face-stencil: 'Big Shoulders Stencil Display', 'PT Sans Narrow', sans-serif;
+  --face-copy: 'Akshar', 'PT Sans Narrow', sans-serif;
+  --face-label: 'Roboto Condensed', 'Arial Narrow', sans-serif;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--kraft) url('../../assets/plates/kraft.jpg') repeat;
+  background-size: 430px;
+  color: var(--ink);
+  scrollbar-color: var(--ink-soft) var(--kraft);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--face-label);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* pieces and strips that swing past the edge never widen the page (clip, unlike hidden, leaves the pin alone) */
+#root {
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--crimson);
+  color: var(--crimson-ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--crimson);
+  outline-offset: 4px;
+}
+
+img {
+  display: block;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* ---------- The first viewport, measured from comp-2b ---------- */
+
+.comp-frame {
+  container-type: inline-size;
+}
+
+.hero {
+  --u: calc(100cqw / 2752);
+}
+
+.hero .plate {
+  object-fit: contain;
+}
+
+.card {
+  --notch: calc(16 * var(--u));
+  isolation: isolate;
+  box-shadow:
+    calc(12 * var(--u)) calc(18 * var(--u)) calc(24 * var(--u)) rgb(var(--shadow) / 0.36),
+    calc(26 * var(--u)) calc(40 * var(--u)) calc(70 * var(--u)) rgb(var(--shadow) / 0.3);
+  /* the card itself sits inside the measured box, which also holds its shadow */
+  margin: calc(14 * var(--u)) calc(40 * var(--u)) calc(56 * var(--u)) calc(14 * var(--u));
+  width: calc(var(--r-headline-card-w) - 54 * var(--u)) !important;
+  height: calc(var(--r-headline-card-h) - 70 * var(--u)) !important;
+}
+
+/* the card's paper, with a die-cut registration notch on each side */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--card) url('../../assets/plates/kraft.jpg');
+  background-size: calc(860 * var(--u));
+  background-blend-mode: soft-light;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(50% - var(--notch)),
+    calc(100% - var(--notch)) 50%,
+    100% calc(50% + var(--notch)),
+    100% 100%,
+    0 100%,
+    0 calc(50% + var(--notch)),
+    var(--notch) 50%,
+    0 calc(50% - var(--notch))
+  );
+}
+
+.slot-tab {
+  position: absolute;
+  top: calc(10 * var(--u));
+  width: calc(64 * var(--u));
+  height: calc(34 * var(--u));
+  filter: drop-shadow(0 calc(3 * var(--u)) calc(3 * var(--u)) rgb(var(--shadow) / 0.35));
+}
+
+.slot-tab-left {
+  left: calc(34 * var(--u));
+}
+
+.slot-tab-right {
+  right: calc(34 * var(--u));
+}
+
+.headline {
+  margin: 0;
+  font-family: var(--face-stencil);
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  font-size: calc(119 * var(--u));
+  line-height: 0.96;
+  letter-spacing: 0.042em;
+  text-transform: uppercase;
+  color: var(--ink);
+  /* cut into the card: a dark lip on top, a light edge below */
+  text-shadow:
+    0 calc(-2 * var(--u)) calc(2 * var(--u)) rgb(20 8 4 / 0.45),
+    0 calc(3 * var(--u)) calc(1 * var(--u)) rgb(255 238 216 / 0.45);
+}
+
+.rule {
+  background: var(--ink);
+  opacity: 0.85;
+  height: calc(4 * var(--u)) !important;
+  margin-top: calc(2 * var(--u));
+}
+
+.subline {
+  margin: 0;
+  font-family: var(--face-copy);
+  font-size: calc(51 * var(--u));
+  line-height: 1.08;
+  color: var(--ink-deep);
+}
+
+.note {
+  margin: 0;
+  font-size: calc(29 * var(--u));
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--ink-deep);
+  white-space: nowrap;
+}
+
+.plinth {
+  /* measured on comp-2b: a 46u top face the tyres stand on, then a 72u front face */
+  --face: calc(46 * var(--u));
+  --front: calc(72 * var(--u));
+  top: calc(912 * var(--u)) !important;
+  height: calc(var(--face) + var(--front)) !important;
+  margin: 0 calc(21 * var(--u));
+  width: calc(var(--r-plinth-w) - 42 * var(--u)) !important;
+  filter: drop-shadow(0 calc(20 * var(--u)) calc(22 * var(--u)) rgb(var(--shadow) / 0.55));
+  /* the crank box hangs behind the shelf; the bike stands on it */
+  z-index: 1;
+}
+
+.plinth::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 var(--front);
+  background: linear-gradient(#b89274, #c9a585 55%, #d3b192);
+  clip-path: polygon(calc(10 * var(--u)) 0, calc(100% - 10 * var(--u)) 0, 100% 100%, 0 100%);
+}
+
+.plinth::after {
+  content: '';
+  position: absolute;
+  inset: var(--face) 0 0;
+  background: linear-gradient(#d9b999, #c9a384 calc(4 * var(--u)), #c19b7b 70%, #b28c6d);
+  border-radius: 0 0 calc(3 * var(--u)) calc(3 * var(--u));
+  box-shadow: inset 0 calc(-2 * var(--u)) 0 rgb(var(--shadow) / 0.18);
+}
+
+.plinth-shadow {
+  /* the plinth's cast shadow falls down and to the right, under the spec tabs */
+  margin-left: calc(-150 * var(--u));
+  width: calc(var(--r-plinth-shadow-w) + 150 * var(--u)) !important;
+  margin-top: calc(-34 * var(--u));
+  background: radial-gradient(130% 100% at 50% 0%, rgb(52 30 20 / 0.97), rgb(60 34 22 / 0.7) 55%, transparent 100%);
+  filter: blur(calc(18 * var(--u)));
+}
+
+.specs {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.spec-chip {
+  position: absolute;
+  inset: 0 calc(6 * var(--u)) calc(18 * var(--u));
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(#e6dace, #ece2d9 40%, #e9ded4);
+  border-radius: 0 0 calc(14 * var(--u)) calc(14 * var(--u));
+  box-shadow:
+    inset 0 0 0 calc(2 * var(--u)) rgb(var(--shadow) / 0.28),
+    0 calc(4 * var(--u)) calc(10 * var(--u)) rgb(var(--shadow) / 0.4);
+  font-family: var(--face-display);
+  font-size: calc(30 * var(--u));
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--ink-deep);
+  white-space: nowrap;
+}
+
+/* ---------- The strip-down ---------- */
+
+.card-intro {
+  transition: opacity 260ms var(--ease-out);
+}
+
+.hero:not([data-step='0']) .card-intro {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.caption {
+  position: absolute;
+  left: calc(var(--r-headline-card-x) + 14 * var(--u));
+  top: calc(var(--r-headline-card-y) + 14 * var(--u));
+  width: calc(var(--r-headline-card-w) - 54 * var(--u));
+  height: calc(var(--r-rule-bottom-y) - var(--r-headline-card-y) - 24 * var(--u));
+  padding: calc(40 * var(--u)) calc(44 * var(--u)) 0 calc(40 * var(--u));
+  overflow: hidden;
+}
+
+.caption-inner {
+  animation: caption-in 420ms var(--ease-out) both;
+}
+
+@keyframes caption-in {
+  from {
+    opacity: 0;
+    transform: translateY(calc(18 * var(--u)));
+  }
+}
+
+.caption-count {
+  margin: 0;
+  font-family: var(--face-stencil);
+  font-weight: 700;
+  font-size: calc(64 * var(--u));
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+
+.caption-now {
+  font-size: calc(150 * var(--u));
+  color: var(--crimson);
+  letter-spacing: 0.02em;
+}
+
+.caption-title {
+  margin: calc(26 * var(--u)) 0 0;
+  padding-bottom: calc(22 * var(--u));
+  border-bottom: calc(4 * var(--u)) solid var(--ink);
+  font-family: var(--face-stencil);
+  font-weight: 700;
+  font-size: calc(76 * var(--u));
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.caption-facts {
+  margin: calc(26 * var(--u)) 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--face-copy);
+  font-size: calc(35 * var(--u));
+  line-height: 1.22;
+  color: var(--ink-deep);
+}
+
+.caption-facts li + li {
+  margin-top: calc(18 * var(--u));
+}
+
+.bike-stack {
+  isolation: isolate;
+  z-index: 2;
+  /* only pictures: pieces that fly past the lever must never catch the visitor's grab */
+  pointer-events: none;
+}
+
+.bike-stack .stage,
+.bank,
+.lift,
+.lift img,
+.occluder,
+.struts,
+.threads {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* contact shadows where the tyres meet the plinth, gone once the wheels are off */
+.bike-stack::before,
+.bike-stack::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 15%;
+  height: 3.2%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgb(40 20 10 / 0.55), rgb(40 20 10 / 0.25) 55%, transparent);
+  transition: opacity 300ms var(--ease-out);
+}
+
+.bike-stack::before {
+  left: 10.4%;
+  top: 94.9%;
+}
+
+.bike-stack::after {
+  left: 73.2%;
+  top: 97%;
+}
+
+.hero:is([data-step='4'], [data-step='5'], [data-step='6'], [data-step='7'], [data-step='8'], [data-step='9'], [data-step='10'])
+  .bike-stack::before,
+.hero:is([data-step='4'], [data-step='5'], [data-step='6'], [data-step='7'], [data-step='8'], [data-step='9'], [data-step='10'])
+  .bike-stack::after {
+  opacity: 0;
+}
+
+.lift {
+  will-change: transform, opacity;
+  transform-origin: 50% 60%;
+}
+
+.lift .back {
+  opacity: 0;
+}
+
+/* once off the wall the part casts a shadow onto it */
+.lift[data-lifted='true'] {
+  filter: drop-shadow(calc(14 * var(--u)) calc(28 * var(--u)) calc(20 * var(--u)) rgb(var(--shadow) / 0.42));
+}
+
+/* a brass paper fastener through the part, where the strut holds it */
+.brad-pin {
+  position: absolute;
+  width: calc(22 * var(--u));
+  height: calc(22 * var(--u));
+  margin: calc(-11 * var(--u)) 0 0 calc(-11 * var(--u));
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #f3dfa8, #c9a24f 45%, #8a6a2c);
+  box-shadow: 0 calc(2 * var(--u)) calc(3 * var(--u)) rgb(var(--shadow) / 0.5);
+  opacity: 0;
+  transition: opacity 200ms var(--ease-out);
+}
+
+.lift[data-lifted='true'] .brad-pin {
+  opacity: 1;
+}
+
+.struts {
+  overflow: visible;
+  pointer-events: none;
+}
+
+.strut-edge,
+.strut-face {
+  stroke-linecap: round;
+}
+
+/* a folded kraft strip: dark cut edges, a lit face and the fold down its middle */
+.strut-edge {
+  stroke: #7f5d44;
+  stroke-width: 72;
+}
+
+.strut-face {
+  stroke: #c9a483;
+  stroke-width: 60;
+}
+
+.strut-crease {
+  stroke: #9b7757;
+  stroke-width: 3;
+  stroke-linecap: round;
+  opacity: 0.7;
+}
+
+.brad {
+  fill: #c9a24f;
+  stroke: #7a5c26;
+  stroke-width: 3;
+}
+
+.brad-slot {
+  stroke: #6b4f1f;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+/* the part's name on a paper strip, pinned to the wall beside it (desktop; phones read it in the card) */
+.lift-tag {
+  position: absolute;
+  z-index: 2;
+  margin: 0;
+  padding: calc(12 * var(--u)) calc(30 * var(--u)) calc(10 * var(--u)) calc(52 * var(--u));
+  background: linear-gradient(#f1e8de, #e7dbcf);
+  box-shadow:
+    0 calc(2 * var(--u)) calc(3 * var(--u)) rgb(var(--shadow) / 0.3),
+    calc(6 * var(--u)) calc(12 * var(--u)) calc(18 * var(--u)) rgb(var(--shadow) / 0.28);
+  font-family: var(--face-stencil);
+  font-weight: 700;
+  font-size: calc(46 * var(--u));
+  line-height: 1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--ink);
+  translate: calc(-26 * var(--u)) -50%;
+  rotate: -1.5deg;
+  pointer-events: none;
+}
+
+.lift-tag::before {
+  content: '';
+  position: absolute;
+  left: calc(15 * var(--u));
+  top: 50%;
+  width: calc(20 * var(--u));
+  height: calc(20 * var(--u));
+  margin-top: calc(-10 * var(--u));
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #f3dfa8, #c9a24f 45%, #8a6a2c);
+  box-shadow: 0 calc(2 * var(--u)) calc(2 * var(--u)) rgb(var(--shadow) / 0.5);
+}
+
+.lift-tag[data-side='left'] {
+  padding: calc(12 * var(--u)) calc(52 * var(--u)) calc(10 * var(--u)) calc(30 * var(--u));
+  translate: calc(-100% + 26 * var(--u)) -50%;
+  rotate: 1.5deg;
+}
+
+.lift-tag[data-side='left']::before {
+  left: auto;
+  right: calc(15 * var(--u));
+}
+
+/* The kickstart: the old crank arm, now a lever the visitor yanks down. Its box never moves (it holds the
+   pivot); the lever inside turns about the pivot, and so does its hit area. */
+.kick {
+  z-index: 2;
+}
+
+.lever {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  transform-origin: 17% 50%;
+  cursor: grab;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lever[data-dragging='true'] {
+  cursor: grabbing;
+}
+
+.lever-arm {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  filter: drop-shadow(calc(4 * var(--u)) calc(8 * var(--u)) calc(8 * var(--u)) rgb(var(--shadow) / 0.35));
+  transition: filter 120ms var(--ease-out);
+}
+
+/* past the catch the lever bites: it presses flat to the box, and the sweep drawn beside it goes solid */
+.lever[data-caught='true'] .lever-arm {
+  filter: brightness(0.93) drop-shadow(calc(2 * var(--u)) calc(3 * var(--u)) calc(3 * var(--u)) rgb(var(--shadow) / 0.45));
+}
+
+.kick:has(.lever[data-caught='true']) .kick-arc-path {
+  stroke-dasharray: none;
+}
+
+.kick-arc {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  transition: opacity 400ms var(--ease-out);
+}
+
+.kick-arc-path {
+  fill: none;
+  stroke: var(--crimson);
+  stroke-width: 4;
+  stroke-dasharray: 10 9;
+  stroke-linecap: round;
+}
+
+.kick-arc-head {
+  fill: var(--crimson);
+}
+
+.kick-label {
+  position: absolute;
+  left: 97%;
+  top: 112%;
+  margin: 0;
+  font-family: var(--face-stencil);
+  font-weight: 700;
+  font-size: calc(50 * var(--u));
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--crimson);
+  rotate: -5deg;
+  pointer-events: none;
+  transition: opacity 400ms var(--ease-out);
+}
+
+/* once the visitor has the hang of it, the instructions step back */
+.hero[data-kicked='true'] .kick-arc {
+  opacity: 0.4;
+}
+
+.hero[data-kicked='true'] .kick-label {
+  opacity: 0.75;
+}
+
+/* Pointers: a crimson thread from a pin on the piece to a paper label. The ticker draws them. */
+.threads {
+  overflow: visible;
+  pointer-events: none;
+}
+
+.thread-line {
+  stroke: var(--crimson);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+}
+
+.thread-pin {
+  fill: #c9a24f;
+  stroke: #7a5c26;
+  stroke-width: 3;
+}
+
+.pointer-label {
+  position: absolute;
+  z-index: 1;
+  padding: calc(8 * var(--u)) calc(14 * var(--u)) calc(7 * var(--u));
+  background: linear-gradient(#f3ebe2, #e9ddd1);
+  border-left: calc(5 * var(--u)) solid var(--crimson);
+  box-shadow:
+    0 calc(1 * var(--u)) calc(2 * var(--u)) rgb(var(--shadow) / 0.3),
+    calc(4 * var(--u)) calc(8 * var(--u)) calc(14 * var(--u)) rgb(var(--shadow) / 0.22);
+  font-family: var(--face-label);
+  font-weight: 700;
+  font-size: calc(27 * var(--u));
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--ink-deep);
+  translate: 0 -50%;
+  pointer-events: none;
+}
+
+.pointer-label[data-side='left'] {
+  border-left: 0;
+  border-right: calc(5 * var(--u)) solid var(--crimson);
+  translate: -100% -50%;
+}
+
+.rail::before {
+  content: '';
+  position: absolute;
+  left: calc(11 * var(--u));
+  top: calc(19 * var(--u));
+  width: calc(113 * var(--u));
+  bottom: calc(28 * var(--u));
+  /* the same board as the wall, a shade deeper where it stands off it */
+  background: linear-gradient(rgb(90 50 20 / 0.07), rgb(90 50 20 / 0.07)), url('../../assets/plates/kraft.jpg');
+  background-size: auto, calc(860 * var(--u));
+  border-radius: calc(4 * var(--u));
+  box-shadow:
+    calc(8 * var(--u)) calc(10 * var(--u)) calc(18 * var(--u)) rgb(var(--shadow) / 0.35),
+    calc(20 * var(--u)) calc(26 * var(--u)) calc(50 * var(--u)) rgb(var(--shadow) / 0.25);
+}
+
+.rail::after {
+  content: '';
+  position: absolute;
+  left: calc(47 * var(--u));
+  top: calc(20 * var(--u));
+  width: calc(58 * var(--u));
+  bottom: calc(30 * var(--u));
+  background: var(--rail);
+  box-shadow: calc(2 * var(--u)) 0 calc(4 * var(--u)) rgb(var(--shadow) / 0.3);
+}
+
+.screw {
+  position: absolute;
+  z-index: 1;
+  left: calc(56 * var(--u));
+  width: calc(40 * var(--u));
+  height: calc(40 * var(--u));
+}
+
+.screw-top {
+  top: calc(40 * var(--u));
+}
+
+.screw-bottom {
+  bottom: calc(54 * var(--u));
+}
+
+.rail-label {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: calc(33 * var(--u));
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  z-index: 1;
+  text-transform: uppercase;
+  color: #351712;
+  white-space: nowrap;
+}
+
+.tabs {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tab {
+  position: absolute;
+  border: 0;
+  cursor: pointer;
+  font-family: var(--face-label);
+  text-align: left;
+  inset: calc(9 * var(--u)) calc(34 * var(--u)) calc(3 * var(--u)) calc(32 * var(--u));
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  padding-left: calc(28 * var(--u));
+  background: var(--tab) url('../../assets/plates/kraft.jpg');
+  background-size: calc(860 * var(--u));
+  background-blend-mode: soft-light;
+  border-radius: 0 calc(12 * var(--u)) calc(12 * var(--u)) 0;
+  box-shadow:
+    inset calc(26 * var(--u)) 0 calc(18 * var(--u)) calc(-12 * var(--u)) rgb(var(--shadow) / 0.45),
+    inset 0 0 0 calc(2 * var(--u)) rgb(var(--shadow) / 0.3),
+    calc(4 * var(--u)) calc(6 * var(--u)) calc(10 * var(--u)) rgb(var(--shadow) / 0.3),
+    calc(10 * var(--u)) calc(16 * var(--u)) calc(28 * var(--u)) rgb(var(--shadow) / 0.18);
+  font-size: calc(40 * var(--u));
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #3d2418;
+  transition:
+    transform 220ms var(--ease-out),
+    background-color 220ms var(--ease-out),
+    color 220ms var(--ease-out);
+}
+
+.tab[aria-current='step'] {
+  left: calc(9 * var(--u));
+  background: linear-gradient(to right, rgb(var(--shadow) / 0.14), transparent 12%) var(--crimson);
+  color: var(--crimson-ink);
+  z-index: 1;
+}
+
+.tab[data-done='true'] {
+  color: rgb(61 36 24 / 0.55);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tab:hover {
+    transform: translateX(calc(-10 * var(--u)));
+  }
+}
+
+/* Paper settles onto the wall: a slight tilt and lift, then pinned flat. Visible by default without JS. */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-pin]:not([data-pinned='true']) {
+    opacity: 0;
+    transform: translateY(18px) rotate(-1.6deg);
+  }
+
+  [data-pin] {
+    transition:
+      opacity 520ms var(--ease-out) var(--pin-delay, 0ms),
+      transform 720ms var(--ease-out) var(--pin-delay, 0ms);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Below the strip-down: paper pinned to the kraft wall ---------- */
+
+.block {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(4rem, 10vw, 8rem) clamp(1rem, 4vw, 3rem) 0;
+}
+
+.stencil-heading {
+  margin: 0;
+  font-family: var(--face-stencil);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 5.2vw, 4.6rem);
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.sheet {
+  --notch: 14px;
+  position: relative;
+  isolation: isolate;
+  padding: clamp(1.75rem, 4vw, 3.5rem);
+  border-radius: 6px;
+  box-shadow:
+    0 2px 3px rgb(var(--shadow) / 0.2),
+    8px 22px 44px rgb(var(--shadow) / 0.28);
+}
+
+.sheet::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: #f1e9e1;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(50% - var(--notch)),
+    calc(100% - var(--notch)) 50%,
+    100% calc(50% + var(--notch)),
+    100% 100%,
+    0 100%,
+    0 calc(50% + var(--notch)),
+    var(--notch) 50%,
+    0 calc(50% - var(--notch))
+  );
+}
+
+.tape {
+  position: absolute;
+  top: -14px;
+  width: 110px;
+  height: 30px;
+  background: rgb(214 186 150 / 0.85);
+  box-shadow: 0 1px 2px rgb(var(--shadow) / 0.25);
+}
+
+.tape-left {
+  left: 8%;
+  transform: rotate(-4deg);
+}
+
+.tape-right {
+  right: 8%;
+  transform: rotate(3deg);
+}
+
+.sheet-head {
+  display: grid;
+  gap: 0.75rem 3rem;
+  align-items: end;
+  padding-bottom: 1.5rem;
+  border-bottom: 3px solid var(--ink);
+}
+
+@media (min-width: 860px) {
+  .sheet-head {
+    grid-template-columns: auto 1fr;
+  }
+}
+
+.sheet-sub {
+  margin: 0;
+  max-width: 44ch;
+  justify-self: end;
+  font-family: var(--face-copy);
+  font-size: 1.15rem;
+  line-height: 1.35;
+  color: var(--ink-soft);
+}
+
+.spec-table {
+  margin: 0;
+  display: grid;
+  column-gap: 3.5rem;
+}
+
+@media (min-width: 860px) {
+  .spec-table {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.spec-row {
+  display: grid;
+  grid-template-columns: minmax(8rem, 38%) 1fr;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgb(69 40 32 / 0.2);
+}
+
+.spec-row dt {
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.spec-row dd {
+  margin: 0;
+  display: grid;
+  gap: 0.2rem;
+}
+
+.spec-value {
+  font-family: var(--face-copy);
+  font-size: 1.2rem;
+  line-height: 1.25;
+  color: var(--ink-deep);
+  font-variant-numeric: tabular-nums;
+}
+
+.spec-note {
+  font-size: 0.9rem;
+  line-height: 1.35;
+  color: rgb(69 40 32 / 0.72);
+}
+
+.rally {
+  display: grid;
+  gap: 2.5rem 4rem;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .rally {
+    grid-template-columns: 1fr 1.1fr;
+  }
+}
+
+.rally-copy p {
+  max-width: 58ch;
+  margin: 1.25rem 0 0;
+  font-family: var(--face-copy);
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--ink-deep);
+}
+
+.dakar {
+  filter: drop-shadow(0 2px 2px rgb(var(--shadow) / 0.25)) drop-shadow(6px 14px 18px rgb(var(--shadow) / 0.28));
+}
+
+.dakar-strip {
+  --band: 26px;
+  /* mask colours only set coverage; ink stands in for 'solid' */
+  --hole: radial-gradient(circle, transparent 5px, var(--ink) 5.6px);
+  margin: 0;
+  padding: calc(var(--band) + 0.6rem) 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: linear-gradient(#f1e8de, #e8dccf);
+  rotate: -1deg;
+  -webkit-mask:
+    var(--hole) 0 0 / 26px var(--band) repeat-x,
+    var(--hole) 0 100% / 26px var(--band) repeat-x,
+    linear-gradient(var(--ink) 0 0) 0 var(--band) / 100% calc(100% - 2 * var(--band)) no-repeat;
+  mask:
+    var(--hole) 0 0 / 26px var(--band) repeat-x,
+    var(--hole) 0 100% / 26px var(--band) repeat-x,
+    linear-gradient(var(--ink) 0 0) 0 var(--band) / 100% calc(100% - 2 * var(--band)) no-repeat;
+}
+
+.dakar-cell {
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.8rem;
+  text-align: center;
+}
+
+/* perforation between the years */
+.dakar-cell + .dakar-cell {
+  border-left: 2px dashed rgb(69 40 32 / 0.3);
+}
+
+.dakar-year {
+  margin-bottom: 0.45rem;
+  padding: 0.12em 0.2em 0.04em;
+  border: 3px solid currentColor;
+  border-radius: 4px;
+  font-family: var(--face-stencil);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 4vw, 3.1rem);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: var(--crimson);
+  opacity: 0.9;
+  mix-blend-mode: multiply;
+  rotate: -4deg;
+}
+
+.dakar-cell:nth-child(even) .dakar-year {
+  rotate: 3deg;
+}
+
+.dakar-rider {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--ink-deep);
+}
+
+.dakar-note {
+  font-size: 0.9rem;
+  line-height: 1.3;
+  color: rgb(59 25 13 / 0.75);
+}
+
+/* phones: the strip runs down the page, punched along both sides */
+@media (max-width: 639px) {
+  .dakar-strip {
+    grid-template-columns: 1fr;
+    padding: 0 calc(var(--band) + 0.4rem);
+    rotate: 0.6deg;
+    -webkit-mask:
+      var(--hole) 0 0 / var(--band) 26px repeat-y,
+      var(--hole) 100% 0 / var(--band) 26px repeat-y,
+      linear-gradient(var(--ink) 0 0) var(--band) 0 / calc(100% - 2 * var(--band)) 100% no-repeat;
+    mask:
+      var(--hole) 0 0 / var(--band) 26px repeat-y,
+      var(--hole) 100% 0 / var(--band) 26px repeat-y,
+      linear-gradient(var(--ink) 0 0) var(--band) 0 / calc(100% - 2 * var(--band)) 100% no-repeat;
+  }
+
+  .dakar-cell {
+    grid-template-columns: auto 1fr;
+    justify-items: start;
+    align-items: center;
+    column-gap: 1.25rem;
+    padding: 1.1rem 0.5rem;
+    text-align: left;
+  }
+
+  .dakar-cell + .dakar-cell {
+    border-left: 0;
+    border-top: 2px dashed rgb(69 40 32 / 0.3);
+  }
+
+  .dakar-year {
+    grid-row: span 2;
+    margin: 0;
+  }
+}
+
+.owners-lead {
+  max-width: 60ch;
+  margin: 1.25rem 0 0;
+  font-family: var(--face-copy);
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--ink-deep);
+}
+
+.tags {
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 720px) {
+  .tags {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .tags {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.tag {
+  position: relative;
+  padding: 2.4rem 1.4rem 1.5rem;
+  background: #efe6dc;
+  border-radius: 10px 10px 4px 4px;
+  clip-path: polygon(14% 0, 86% 0, 100% 9%, 100% 100%, 0 100%, 0 9%);
+  filter: drop-shadow(3px 8px 10px rgb(var(--shadow) / 0.3));
+}
+
+.tag-hole {
+  position: absolute;
+  top: 0.9rem;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  border-radius: 50%;
+  background: var(--kraft);
+  box-shadow: inset 0 2px 3px rgb(var(--shadow) / 0.5);
+}
+
+.tag h3 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.tag p {
+  margin: 0.6rem 0 0;
+  font-family: var(--face-copy);
+  font-size: 1.08rem;
+  line-height: 1.4;
+  color: var(--ink-deep);
+}
+
+.footer {
+  margin-top: clamp(4rem, 10vw, 8rem);
+  padding: 3rem clamp(1rem, 4vw, 3rem) 3.5rem;
+  background: var(--ink);
+  color: #ead9cb;
+}
+
+.footer-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  gap: 2.5rem;
+}
+
+@media (min-width: 960px) {
+  .footer-grid {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+}
+
+.footer p {
+  margin: 0 0 0.9rem;
+  max-width: 60ch;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.footer-title {
+  font-family: var(--face-stencil);
+  font-weight: 700;
+  font-size: 1.6rem !important;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #f4e6da;
+}
+
+.footer-label {
+  margin: 0 0 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c9ab94;
+}
+
+.footer-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.ink-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgb(234 217 203 / 0.4);
+  text-underline-offset: 3px;
+}
+
+.ink-link:hover {
+  text-decoration-color: currentColor;
+}
+
+.sheet .ink-link,
+.block .ink-link {
+  text-decoration-color: rgb(69 40 32 / 0.35);
+}
+
+/* ---------- Desktop windows shorter than the comp: the frame never outgrows the viewport ---------- */
+
+@media (min-width: 900px) {
+  .comp-frame.hero {
+    width: min(100%, calc(100svh * 2752 / 1536));
+    margin-inline: auto;
+  }
+}
+
+/* ---------- Phones and portrait tablets: the comp restacked around the bike ---------- */
+
+@media (max-width: 899px) {
+  .comp-frame.hero {
+    aspect-ratio: auto;
+    height: 100svh;
+    min-height: 600px;
+    --u: calc(100vw / 1000);
+    --card-top: 12px;
+    --card-h: 43svh;
+    --bike-top: calc(var(--card-top) + var(--card-h) + 4px);
+    --bike-h: 66.3vw;
+  }
+
+  .hero .card,
+  .hero .caption,
+  .hero .card-intro {
+    position: absolute;
+    left: 4vw;
+    top: var(--card-top);
+    width: 92vw !important;
+    height: var(--card-h) !important;
+    margin: 0;
+  }
+
+  .hero .card-intro,
+  .hero .caption {
+    padding: 22px 20px 0;
+  }
+
+  .hero .card-intro > * {
+    position: static;
+    width: auto;
+    height: auto;
+  }
+
+  .hero .card-intro .rule {
+    margin: 18px 0 14px;
+  }
+
+  .hero .subline {
+    font-size: 19px;
+  }
+
+  .hero .r-rule-bottom {
+    left: calc(4vw + 20px);
+    top: calc(var(--card-top) + var(--card-h) - 44px);
+    width: calc(92vw - 40px);
+  }
+
+  .hero .note {
+    left: calc(4vw + 20px);
+    top: calc(var(--card-top) + var(--card-h) - 34px);
+    width: auto;
+    height: auto;
+    font-size: 12px;
+  }
+
+  .hero .caption {
+    height: calc(var(--card-h) - 48px) !important;
+  }
+
+  .hero .caption-facts {
+    font-size: 14.5px;
+    line-height: 1.3;
+  }
+
+  .hero .caption-facts li + li {
+    margin-top: 8px;
+  }
+
+  .hero .bike-stack {
+    left: 2vw;
+    top: var(--bike-top);
+    width: 96vw;
+    height: var(--bike-h);
+  }
+
+  .hero .plinth {
+    --face: calc(var(--bike-h) * 0.07);
+    --front: 14px;
+    left: 6vw;
+    top: calc(var(--bike-top) + var(--bike-h) * 0.935) !important;
+    width: 88vw !important;
+    height: calc(var(--face) + var(--front)) !important;
+    margin: 0;
+  }
+
+  .hero .lift-tag {
+    display: none;
+  }
+
+  .hero .plinth-shadow,
+  .hero .specs {
+    display: none;
+  }
+
+  .hero {
+    --box-top: calc(var(--bike-top) + var(--bike-h) * 1.005 + 6px);
+  }
+
+  .hero .r-crank-box {
+    left: 64vw;
+    top: var(--box-top);
+    width: 30vw;
+    height: 21.7vw;
+  }
+
+  .hero .kick {
+    left: calc(64vw + 30vw * 0.38);
+    top: calc(var(--box-top) + 21.7vw * 0.285);
+    width: calc(30vw * 0.72);
+    height: calc(21.7vw * 0.43);
+  }
+
+  /* the wall left of the box has the room for the word */
+  .hero .kick-label {
+    left: auto;
+    right: calc(100% + 14vw);
+    top: 0;
+    font-size: 20px;
+  }
+
+  .hero .pointer-label {
+    padding: 3px 6px 2px;
+    border-width: 3px;
+    font-size: 12px;
+  }
+
+  /* two threads at most on a phone */
+  .hero .thread[data-index='2'],
+  .hero .thread[data-index='3'],
+  .hero .pointer-label[data-index='2'],
+  .hero .pointer-label[data-index='3'] {
+    display: none;
+  }
+
+  .hero .rail,
+  .hero .rail-label {
+    display: none;
+  }
+
+  .hero .tabs {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 14px;
+    display: flex;
+    gap: 8px;
+    padding: 6px 4vw 10px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+  }
+
+  .hero .tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hero .tabs > li {
+    position: static;
+    flex: none;
+    width: auto;
+    height: auto;
+  }
+
+  .hero .tab,
+  .hero .tab[aria-current='step'] {
+    position: static;
+    inset: auto;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+}

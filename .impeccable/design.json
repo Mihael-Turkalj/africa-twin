@@ -1,0 +1,853 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-27T17:56:39.678Z",
+  "title": "Design System: XRV750 Africa Twin, take it apart",
+  "extensions": {
+    "colorMeta": {
+      "crimson": {
+        "role": "primary",
+        "displayName": "Rally Crimson",
+        "canonical": "oklch(49.1% 0.165 16)",
+        "tonalRamp": [
+          "#1d0104",
+          "#460c16",
+          "#741e2b",
+          "#a53243",
+          "#cc5663",
+          "#e5858b",
+          "#fcb3b6",
+          "#ffe0e2"
+        ]
+      },
+      "crimson-ink": {
+        "role": "primary",
+        "displayName": "Crimson Blush",
+        "canonical": "oklch(92.4% 0.027 6)",
+        "tonalRamp": [
+          "#0f0a0b",
+          "#2b2224",
+          "#4b3e40",
+          "#6e5c5f",
+          "#907d80",
+          "#b0a0a3",
+          "#d2c6c8",
+          "#f4eced"
+        ]
+      },
+      "kraft": {
+        "role": "neutral",
+        "displayName": "Kraft Board",
+        "canonical": "oklch(73.7% 0.059 62)",
+        "tonalRamp": [
+          "#110904",
+          "#302215",
+          "#533d2a",
+          "#785a41",
+          "#9a7b61",
+          "#b9a08a",
+          "#d9c5b5",
+          "#f9ece1"
+        ]
+      },
+      "card": {
+        "role": "neutral",
+        "displayName": "Card Kraft",
+        "canonical": "oklch(77.2% 0.056 64)",
+        "tonalRamp": [
+          "#110904",
+          "#2f2216",
+          "#513e2b",
+          "#765b43",
+          "#987c63",
+          "#b7a08b",
+          "#d7c6b6",
+          "#f8ece2"
+        ]
+      },
+      "tab": {
+        "role": "neutral",
+        "displayName": "Tab Kraft",
+        "canonical": "oklch(69.1% 0.063 61)",
+        "tonalRamp": [
+          "#120904",
+          "#312114",
+          "#543c29",
+          "#795a3f",
+          "#9c7b60",
+          "#bb9f89",
+          "#dac5b4",
+          "#faece1"
+        ]
+      },
+      "rail": {
+        "role": "neutral",
+        "displayName": "Rail Paper",
+        "canonical": "oklch(89.4% 0.018 54)",
+        "tonalRamp": [
+          "#0d0a09",
+          "#292421",
+          "#48403c",
+          "#695f59",
+          "#8b8079",
+          "#aca39e",
+          "#cec8c3",
+          "#f2edeb"
+        ]
+      },
+      "sheet-paper": {
+        "role": "neutral",
+        "displayName": "Pulp Sheet",
+        "canonical": "oklch(93.8% 0.014 68)",
+        "tonalRamp": [
+          "#0c0b09",
+          "#272421",
+          "#46413d",
+          "#66605a",
+          "#88817b",
+          "#a9a49f",
+          "#ccc8c4",
+          "#f1eeeb"
+        ]
+      },
+      "chip-paper": {
+        "role": "neutral",
+        "displayName": "Chip Paper",
+        "canonical": "oklch(91.8% 0.016 65)",
+        "tonalRamp": [
+          "#100a05",
+          "#2a221c",
+          "#463e37",
+          "#645c54",
+          "#847b73",
+          "#a69d94",
+          "#ccc2b9",
+          "#f7ece3"
+        ]
+      },
+      "masking-tape": {
+        "role": "neutral",
+        "displayName": "Masking Tape",
+        "canonical": "rgb(214 186 150 / 0.85)",
+        "tonalRamp": [
+          "#130900",
+          "#331f00",
+          "#523b1a",
+          "#715938",
+          "#927856",
+          "#b59976",
+          "#dbbf9b",
+          "#feebd3"
+        ]
+      },
+      "plinth-lip": {
+        "role": "neutral",
+        "displayName": "Plinth Lip",
+        "canonical": "oklch(80.5% 0.057 67)",
+        "tonalRamp": [
+          "#140800",
+          "#361e00",
+          "#543a1d",
+          "#73573a",
+          "#957759",
+          "#b79879",
+          "#debe9e",
+          "#feebd8"
+        ]
+      },
+      "plinth-front": {
+        "role": "neutral",
+        "displayName": "Plinth Front",
+        "canonical": "oklch(71.6% 0.063 62)",
+        "tonalRamp": [
+          "#150700",
+          "#381c00",
+          "#583719",
+          "#785537",
+          "#997556",
+          "#bc9676",
+          "#e3bc9b",
+          "#feebdb"
+        ]
+      },
+      "plinth-foot": {
+        "role": "neutral",
+        "displayName": "Plinth Foot",
+        "canonical": "oklch(66.8% 0.063 61)",
+        "tonalRamp": [
+          "#160700",
+          "#381c01",
+          "#58371a",
+          "#785538",
+          "#997556",
+          "#bc9676",
+          "#e3bb9b",
+          "#feeadb"
+        ]
+      },
+      "strut-edge": {
+        "role": "neutral",
+        "displayName": "Strut Edge",
+        "canonical": "oklch(50.7% 0.058 57)",
+        "tonalRamp": [
+          "#170700",
+          "#381c03",
+          "#57371f",
+          "#77553d",
+          "#98755b",
+          "#bb967b",
+          "#e2bba0",
+          "#ffeadc"
+        ]
+      },
+      "strut-face": {
+        "role": "neutral",
+        "displayName": "Strut Face",
+        "canonical": "oklch(74.4% 0.063 63)",
+        "tonalRamp": [
+          "#150800",
+          "#371c00",
+          "#573819",
+          "#775637",
+          "#987556",
+          "#bb9676",
+          "#e2bc9a",
+          "#ffead9"
+        ]
+      },
+      "strut-crease": {
+        "role": "neutral",
+        "displayName": "Strut Crease",
+        "canonical": "oklch(59.7% 0.064 63)",
+        "tonalRamp": [
+          "#150700",
+          "#371d02",
+          "#583818",
+          "#785536",
+          "#997555",
+          "#bc9675",
+          "#e3bc9a",
+          "#ffead9"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Workshop Ink",
+        "canonical": "oklch(31.2% 0.046 36)",
+        "tonalRamp": [
+          "#110907",
+          "#30211d",
+          "#523c36",
+          "#775951",
+          "#9a7a71",
+          "#b99e97",
+          "#d8c4be",
+          "#f8ebe7"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "oklch(41.9% 0.045 52)",
+        "tonalRamp": [
+          "#100906",
+          "#2f221a",
+          "#503d32",
+          "#755b4c",
+          "#977c6c",
+          "#b6a093",
+          "#d6c5bb",
+          "#f7ece6"
+        ]
+      },
+      "ink-deep": {
+        "role": "neutral",
+        "displayName": "Deep Ink",
+        "canonical": "oklch(26.1% 0.058 40)",
+        "tonalRamp": [
+          "#120806",
+          "#32201a",
+          "#553b31",
+          "#7b574b",
+          "#9e786b",
+          "#bd9d92",
+          "#dcc3bb",
+          "#fbebe5"
+        ]
+      },
+      "footer-title": {
+        "role": "neutral",
+        "displayName": "Footer Title",
+        "canonical": "oklch(93.3% 0.022 63)",
+        "tonalRamp": [
+          "#120903",
+          "#2c2219",
+          "#483d34",
+          "#675b51",
+          "#877b70",
+          "#a99c91",
+          "#cfc1b6",
+          "#faece0"
+        ]
+      },
+      "footer-text": {
+        "role": "neutral",
+        "displayName": "Footer Text",
+        "canonical": "oklch(89.5% 0.027 62)",
+        "tonalRamp": [
+          "#130802",
+          "#2e2117",
+          "#4a3d31",
+          "#695b4e",
+          "#897a6d",
+          "#ab9b8e",
+          "#d1c1b3",
+          "#fcebdd"
+        ]
+      },
+      "footer-label": {
+        "role": "neutral",
+        "displayName": "Footer Label",
+        "canonical": "oklch(76.2% 0.047 59)",
+        "tonalRamp": [
+          "#160700",
+          "#351e0a",
+          "#523a26",
+          "#725743",
+          "#937761",
+          "#b59881",
+          "#dcbda6",
+          "#ffeadb"
+        ]
+      },
+      "brass": {
+        "role": "tertiary",
+        "displayName": "Brass",
+        "canonical": "oklch(73.1% 0.111 84)",
+        "tonalRamp": [
+          "#120900",
+          "#322200",
+          "#563e00",
+          "#7c5b01",
+          "#9f7d32",
+          "#bda16a",
+          "#dbc79e",
+          "#faedd3"
+        ]
+      },
+      "brass-light": {
+        "role": "tertiary",
+        "displayName": "Brass Highlight",
+        "canonical": "oklch(90.7% 0.074 90)",
+        "tonalRamp": [
+          "#100a00",
+          "#2d2302",
+          "#4f3d02",
+          "#6e5c28",
+          "#8e7c48",
+          "#b09d68",
+          "#d6c38d",
+          "#feeec0"
+        ]
+      },
+      "brass-shade": {
+        "role": "tertiary",
+        "displayName": "Brass Shade",
+        "canonical": "oklch(54.4% 0.089 81)",
+        "tonalRamp": [
+          "#120900",
+          "#302102",
+          "#533b04",
+          "#775816",
+          "#98783a",
+          "#bb995c",
+          "#e2bf81",
+          "#feeccd"
+        ]
+      },
+      "brass-rim": {
+        "role": "tertiary",
+        "displayName": "Brass Rim",
+        "canonical": "oklch(49.5% 0.081 80)",
+        "tonalRamp": [
+          "#120900",
+          "#312101",
+          "#553a01",
+          "#765821",
+          "#977843",
+          "#b99963",
+          "#e0bf88",
+          "#feecce"
+        ]
+      },
+      "brass-slot": {
+        "role": "tertiary",
+        "displayName": "Brass Slot",
+        "canonical": "oklch(44.7% 0.074 78)",
+        "tonalRamp": [
+          "#120900",
+          "#322000",
+          "#553a04",
+          "#755829",
+          "#967849",
+          "#b89969",
+          "#dfbf8d",
+          "#ffeccf"
+        ]
+      },
+      "shadow-umber": {
+        "role": "neutral",
+        "displayName": "Umber Shadow",
+        "canonical": "rgb(58 32 18)",
+        "tonalRamp": [
+          "#110906",
+          "#2f221b",
+          "#513d32",
+          "#765a4c",
+          "#987b6c",
+          "#b79f93",
+          "#d7c5bc",
+          "#f8ece6"
+        ]
+      },
+      "shadow-contact": {
+        "role": "neutral",
+        "displayName": "Contact Umber",
+        "canonical": "rgb(40 20 10)",
+        "tonalRamp": [
+          "#170601",
+          "#331e14",
+          "#513a2f",
+          "#70574c",
+          "#91776b",
+          "#b3988b",
+          "#dabdb0",
+          "#feeae0"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display (stencil)",
+        "purpose": "Hero title only, stacked XRV750 / Africa / Twin, cut into the card. Accepted deviation: slightly taller and narrower than the comp's AI-drawn lettering (user, 2026-09-27)."
+      },
+      "step-number": {
+        "displayName": "Step number",
+        "purpose": "Crimson current-step numeral in the caption card, before '/ 10'."
+      },
+      "headline": {
+        "displayName": "Section headline",
+        "purpose": "Stencil headings below the strip-down: Spec sheet, Born on the Dakar, What owners check."
+      },
+      "stamp": {
+        "displayName": "Stamp",
+        "purpose": "Crimson stencil Dakar year stamps."
+      },
+      "title": {
+        "displayName": "Assembly title",
+        "purpose": "Assembly name in the caption card, ruled underneath in ink."
+      },
+      "kick-label": {
+        "displayName": "Kick label",
+        "purpose": "Stencilled instruction beside the lever: 'Kick', 'Kick to rebuild' at step 10. The one stencilled instruction."
+      },
+      "name-strip": {
+        "displayName": "Name strip",
+        "purpose": "Stencil assembly name on the paper strip pinned beside the lifted part."
+      },
+      "footer-title": {
+        "displayName": "Footer title",
+        "purpose": "Stencil title on the Workshop Ink footer band."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Akshar copy; the hero subline and caption facts use the same face in comp units."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "The spec sheet's subline under its heading."
+      },
+      "tag-body": {
+        "displayName": "Tag body",
+        "purpose": "Owner-tag copy."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase Roboto Condensed spec-table terms."
+      },
+      "tag-title": {
+        "displayName": "Tag title",
+        "purpose": "Uppercase owner-tag titles."
+      },
+      "rider": {
+        "displayName": "Rider",
+        "purpose": "Uppercase Dakar rider names."
+      },
+      "footer-copy": {
+        "displayName": "Footer copy",
+        "purpose": "Footer paragraphs; footer lists sit at 0.95rem."
+      },
+      "note": {
+        "displayName": "Note",
+        "purpose": "Spec notes and Dakar notes at reduced ink."
+      },
+      "footer-label": {
+        "displayName": "Footer label",
+        "purpose": "Widely tracked footer column labels."
+      },
+      "tab": {
+        "displayName": "Rail tab",
+        "purpose": "Numbered assembly tabs on the rail."
+      },
+      "pointer": {
+        "displayName": "Pointer",
+        "purpose": "Paper labels at the end of the crimson threads."
+      },
+      "chip": {
+        "displayName": "Spec chip",
+        "purpose": "PT Sans Narrow on the three hero spec chips."
+      },
+      "kick-label-phone": {
+        "displayName": "Kick label (phone)",
+        "purpose": "Kick label under 900px, on the wall left of the crank box."
+      },
+      "subline-phone": {
+        "displayName": "Subline (phone)",
+        "purpose": "Hero subline under 900px."
+      },
+      "facts-phone": {
+        "displayName": "Caption facts (phone)",
+        "purpose": "Caption facts under 900px."
+      },
+      "tab-phone": {
+        "displayName": "Tab (phone)",
+        "purpose": "Rail tabs as scrolling pills under 900px."
+      },
+      "note-phone": {
+        "displayName": "Hero note (phone)",
+        "purpose": "'Unofficial showcase' note under 900px."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card-on-board",
+        "value": "calc(12 * var(--u)) calc(18 * var(--u)) calc(24 * var(--u)) rgb(58 32 18 / 0.36), calc(26 * var(--u)) calc(40 * var(--u)) calc(70 * var(--u)) rgb(58 32 18 / 0.3)",
+        "purpose": "Headline and caption card on the kraft wall."
+      },
+      {
+        "name": "rail-tab",
+        "value": "inset calc(26 * var(--u)) 0 calc(18 * var(--u)) calc(-12 * var(--u)) rgb(58 32 18 / 0.45), inset 0 0 0 calc(2 * var(--u)) rgb(58 32 18 / 0.3), calc(4 * var(--u)) calc(6 * var(--u)) calc(10 * var(--u)) rgb(58 32 18 / 0.3), calc(10 * var(--u)) calc(16 * var(--u)) calc(28 * var(--u)) rgb(58 32 18 / 0.18)",
+        "purpose": "Tab emerging from behind the rail board."
+      },
+      {
+        "name": "lifted-part",
+        "value": "drop-shadow(calc(14 * var(--u)) calc(28 * var(--u)) calc(20 * var(--u)) rgb(58 32 18 / 0.42))",
+        "purpose": "Filter on a cut-paper part once it has lifted off the wall."
+      },
+      {
+        "name": "lever",
+        "value": "drop-shadow(calc(4 * var(--u)) calc(8 * var(--u)) calc(8 * var(--u)) rgb(58 32 18 / 0.35))",
+        "purpose": "The kickstart lever over its box."
+      },
+      {
+        "name": "name-strip",
+        "value": "0 calc(2 * var(--u)) calc(3 * var(--u)) rgb(58 32 18 / 0.3), calc(6 * var(--u)) calc(12 * var(--u)) calc(18 * var(--u)) rgb(58 32 18 / 0.28)",
+        "purpose": "Paper strip naming the lifted part."
+      },
+      {
+        "name": "pointer-label",
+        "value": "0 calc(1 * var(--u)) calc(2 * var(--u)) rgb(58 32 18 / 0.3), calc(4 * var(--u)) calc(8 * var(--u)) calc(14 * var(--u)) rgb(58 32 18 / 0.22)",
+        "purpose": "Paper slip at the end of a thread; flatter than the name strip."
+      },
+      {
+        "name": "tyre-contact",
+        "value": "radial-gradient(closest-side, rgb(40 20 10 / 0.55), rgb(40 20 10 / 0.25) 55%, transparent)",
+        "purpose": "Ellipse under each tyre on the plinth; hidden from step 4 on."
+      },
+      {
+        "name": "sheet",
+        "value": "0 2px 3px rgb(58 32 18 / 0.2), 8px 22px 44px rgb(58 32 18 / 0.28)",
+        "purpose": "Spec sheet below the fold."
+      },
+      {
+        "name": "pinned-paper",
+        "value": "drop-shadow(3px 8px 10px rgb(58 32 18 / 0.3))",
+        "purpose": "Owner tags (clip-path shapes need a filter shadow)."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "The CSS easing token (--ease-out): every transition, the caption rise, the paper settle."
+      },
+      {
+        "name": "lever-geometry",
+        "value": "rest -15deg, catch 56deg, max 74deg; x 0.45 past the catch; pivot 17% / 50%",
+        "purpose": "Kickstart lever travel, clockwise from pointing right."
+      },
+      {
+        "name": "lever-spring",
+        "value": "kick: back.out(2.4) 0.55s; short pull: back.out(1.6) 0.4s",
+        "purpose": "Lever returning to rest after release."
+      },
+      {
+        "name": "lever-key",
+        "value": "to 70deg in 0.14s power3.in, then lever-spring",
+        "purpose": "Enter, Space or ArrowDown on the focused lever."
+      },
+      {
+        "name": "lever-hint",
+        "value": "+16deg 0.32s power2.out, back 0.5s back.out(2); repeat every 2.4s after 1.4s",
+        "purpose": "Idle dip until the first kick or tab."
+      },
+      {
+        "name": "box-rattle",
+        "value": "x 2, -2, 1, 0px over 0.2s",
+        "purpose": "Short pull past 6deg that does not reach the catch."
+      },
+      {
+        "name": "kick-jolt",
+        "value": "yPercent 1.4 / rot 0.6 (0.07s power2.out), -0.7 / -0.35 (0.1s), 0 (0.2s); box x -3, 2, 0 over 0.24s",
+        "purpose": "The bike and crank box on every kick."
+      },
+      {
+        "name": "piece-leave",
+        "value": "0.36s power2.in to 2.5x reach, fading; threads and name strip out 0.14s power1.in",
+        "purpose": "The resting piece flies on along its own path."
+      },
+      {
+        "name": "stage-flip",
+        "value": "65ms per stage",
+        "purpose": "Flipping through intermediate stages on a tab jump or the step-10 rebuild."
+      },
+      {
+        "name": "piece-lift",
+        "value": "back.out(1.25) 0.8s, from 0.06s after the swap",
+        "purpose": "The arriving piece lifts on its strut."
+      },
+      {
+        "name": "name-strip-in",
+        "value": "0.3s power2.out, from 0.5s after the swap",
+        "purpose": "Name strip fades in beside the lifted part."
+      },
+      {
+        "name": "threads-draw",
+        "value": "0.9s linear from 0.55s after the swap; thread i offset 0.2/1.6; label fades in over the last 45% of its thread",
+        "purpose": "Pointer threads draw out to their labels."
+      },
+      {
+        "name": "sway",
+        "value": "sin(1.9t) x 0.45% vertical, sin(1.4t) x 0.5deg; eases in 0.8s power1.inOut from 0.8s after the swap",
+        "purpose": "Lifted piece sways on its strut; the ticker runs only while the hero intersects the viewport."
+      },
+      {
+        "name": "caption-in",
+        "value": "420ms ease-out, from opacity 0 and translateY(18u)",
+        "purpose": "Caption card content for each new step; the intro fades out over 260ms."
+      },
+      {
+        "name": "tab-slide",
+        "value": "220ms ease-out, translateX(-10u)",
+        "purpose": "Rail tab hover on fine pointers."
+      },
+      {
+        "name": "kick-hint-fade",
+        "value": "400ms ease-out to 0.4 (arc) and 0.75 (label)",
+        "purpose": "The instructions step back after the first kick."
+      },
+      {
+        "name": "paper-settle",
+        "value": "opacity 520ms + transform 720ms ease-out from translateY(18px) rotate(-1.6deg); tags staggered 70ms",
+        "purpose": "Sheets, the Dakar strip and owner tags settle onto the wall on first view (IntersectionObserver, -10% bottom margin). Visible without JS."
+      },
+      {
+        "name": "phone-lift-scale",
+        "value": "x 0.45, y 0.6",
+        "purpose": "Piece travel is shortened under 900px where there is little wall around the bike."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Every strip-down duration is 0: kicks and tab jumps apply instantly with labels shown; no jolt, sway or hint. CSS transitions and animations collapse to 0.01ms and the settle is removed."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "dakar-vertical",
+        "value": "max-width: 639px"
+      },
+      {
+        "name": "tags-2up",
+        "value": "720px"
+      },
+      {
+        "name": "two-column",
+        "value": "860px"
+      },
+      {
+        "name": "hero-restack",
+        "value": "max-width: 899px"
+      },
+      {
+        "name": "hero-comp",
+        "value": "900px"
+      },
+      {
+        "name": "rally-footer-columns",
+        "value": "960px"
+      },
+      {
+        "name": "tags-4up",
+        "value": "1100px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Rail Tab",
+      "kind": "nav",
+      "refersTo": "rail-tab",
+      "description": "Numbered paper tab on the rail; one per assembly.",
+      "html": "<button class=\"ds-tab\"><span>02</span> Tank &amp; seat</button>",
+      "css": ".ds-tab { display: flex; align-items: center; gap: 0.3em; min-width: 220px; height: 48px; padding: 0 16px; border: 0; border-radius: 0 8px 8px 0; background: #b99374; color: #3d2418; font-family: 'Roboto Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -0.01em; text-transform: uppercase; cursor: pointer; box-shadow: inset 14px 0 10px -7px rgb(58 32 18 / 0.45), inset 0 0 0 1px rgb(58 32 18 / 0.3), 2px 3px 5px rgb(58 32 18 / 0.3), 5px 8px 14px rgb(58 32 18 / 0.18); transition: transform 220ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-tab:hover { transform: translateX(-5px); } .ds-tab:focus-visible { outline: 3px solid #aa283f; outline-offset: 4px; }"
+    },
+    {
+      "name": "Rail Tab (current step)",
+      "kind": "nav",
+      "refersTo": "rail-tab-active",
+      "description": "The tab of the assembly in motion: crimson and pulled out.",
+      "html": "<button class=\"ds-tab-active\" aria-current=\"step\"><span>01</span> Fairing</button>",
+      "css": ".ds-tab-active { display: flex; align-items: center; gap: 0.3em; min-width: 232px; height: 48px; padding: 0 16px; border: 0; border-radius: 0 8px 8px 0; background: linear-gradient(to right, rgb(0 0 0 / 0.08), transparent 12%) #aa283f; color: #f7dfe3; font-family: 'Roboto Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -0.01em; text-transform: uppercase; box-shadow: 2px 3px 5px rgb(58 32 18 / 0.3), 5px 8px 14px rgb(58 32 18 / 0.18); } .ds-tab-active:focus-visible { outline: 3px solid #aa283f; outline-offset: 4px; }"
+    },
+    {
+      "name": "Kickstart Lever",
+      "kind": "button",
+      "refersTo": "kick-label",
+      "description": "Paper lever on the crank box with the dashed crimson sweep arc and the stencilled Kick label. The shipped arm is a raster plate; a kraft strip stands in here.",
+      "html": "<div class=\"ds-kick\"><svg class=\"ds-kick-arc\" viewBox=\"0 0 380 165\" aria-hidden=\"true\"><path class=\"ds-kick-path\" d=\"M351.2 26.8 A292 292 0 0 1 227.9 324.6\"/></svg><button class=\"ds-lever\" aria-label=\"Kickstart lever\"><span class=\"ds-lever-arm\"></span></button><p class=\"ds-kick-label\">Kick</p></div>",
+      "css": ".ds-kick { position: relative; width: 240px; height: 104px; margin: 0 120px 80px 0; } .ds-kick-arc { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; } .ds-kick-path { fill: none; stroke: #aa283f; stroke-width: 4; stroke-dasharray: 10 9; stroke-linecap: round; } .ds-lever { position: absolute; inset: 0; padding: 0; border: 0; background: none; transform-origin: 17% 50%; transform: rotate(-15deg); cursor: grab; touch-action: none; transition: transform 550ms cubic-bezier(0.34, 1.9, 0.64, 1); } .ds-lever:active { cursor: grabbing; transform: rotate(56deg); transition-duration: 140ms; } .ds-lever:focus-visible { outline: 3px solid #aa283f; outline-offset: 4px; } .ds-lever-arm { position: absolute; left: 10%; top: 40%; width: 80%; height: 20%; border-radius: 10px; background: #c9a483; box-shadow: inset 0 0 0 2px #7f5d44; filter: drop-shadow(2px 4px 4px rgb(58 32 18 / 0.35)); } .ds-lever-arm::after { content: ''; position: absolute; right: -6px; top: 50%; width: 22px; height: 22px; margin-top: -11px; border-radius: 50%; background: #aa283f; } .ds-kick-label { position: absolute; left: 97%; top: 112%; margin: 0; font-family: 'Big Shoulders Stencil Display', 'PT Sans Narrow', sans-serif; font-weight: 700; font-size: 26px; line-height: 1; letter-spacing: 0.06em; text-transform: uppercase; color: #aa283f; rotate: -5deg; white-space: nowrap; }"
+    },
+    {
+      "name": "Pointer",
+      "kind": "custom",
+      "refersTo": "pointer-label",
+      "description": "Crimson thread from a brass pin on the separated piece to a paper label with a crimson edge on the thread side.",
+      "html": "<div class=\"ds-pointer\"><svg class=\"ds-thread\" viewBox=\"0 0 120 40\" aria-hidden=\"true\"><line x1=\"8\" y1=\"32\" x2=\"116\" y2=\"8\"/><circle cx=\"8\" cy=\"32\" r=\"5\"/></svg><span class=\"ds-pointer-label\">23 L tank</span></div>",
+      "css": ".ds-pointer { position: relative; display: inline-flex; align-items: flex-start; } .ds-thread { width: 120px; height: 40px; overflow: visible; } .ds-thread line { stroke: #aa283f; stroke-width: 3; stroke-linecap: round; } .ds-thread circle { fill: #c9a24f; stroke: #7a5c26; stroke-width: 1.5; } .ds-pointer-label { margin: -6px 0 0 -2px; padding: 4px 7px; background: linear-gradient(#f3ebe2, #e9ddd1); border-left: 3px solid #aa283f; box-shadow: 0 1px 1px rgb(58 32 18 / 0.3), 2px 4px 7px rgb(58 32 18 / 0.22); font-family: 'Roboto Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 14px; line-height: 1.1; letter-spacing: 0.02em; text-transform: uppercase; white-space: nowrap; color: #3b190d; }"
+    },
+    {
+      "name": "Caption Card",
+      "kind": "card",
+      "refersTo": "sheet",
+      "description": "Kraft card with side notches carrying the step number, assembly title and facts.",
+      "html": "<article class=\"ds-caption\"><p class=\"ds-caption-count\"><span>04</span> / 10</p><h2 class=\"ds-caption-title\">Wheels</h2><p class=\"ds-caption-fact\">Spoked aluminium rims: 21 inches at the front, 17 at the rear.</p></article>",
+      "css": ".ds-caption { width: 300px; padding: 22px 24px 28px; background: #cfae90; color: #452820; clip-path: polygon(0 0, 100% 0, 100% calc(50% - 9px), calc(100% - 9px) 50%, 100% calc(50% + 9px), 100% 100%, 0 100%, 0 calc(50% + 9px), 9px 50%, 0 calc(50% - 9px)); } .ds-caption-count { margin: 0; font-family: 'Big Shoulders Stencil Display', 'PT Sans Narrow', sans-serif; font-weight: 700; font-size: 36px; line-height: 1; letter-spacing: 0.04em; color: #614636; } .ds-caption-count span { font-size: 82px; color: #aa283f; letter-spacing: 0.02em; } .ds-caption-title { margin: 14px 0 0; padding-bottom: 12px; border-bottom: 2px solid #452820; font-family: 'Big Shoulders Stencil Display', 'PT Sans Narrow', sans-serif; font-weight: 700; font-size: 42px; line-height: 0.95; letter-spacing: 0.04em; text-transform: uppercase; } .ds-caption-fact { margin: 14px 0 0; font-family: 'Akshar', 'PT Sans Narrow', sans-serif; font-size: 19px; line-height: 1.22; color: #3b190d; }"
+    },
+    {
+      "name": "Name Strip",
+      "kind": "custom",
+      "description": "Paper strip naming the lifted assembly, pinned to the wall with a brass brad.",
+      "html": "<p class=\"ds-name-strip\">Wheels</p>",
+      "css": ".ds-name-strip { position: relative; display: inline-block; margin: 0; padding: 7px 16px 5px 28px; background: linear-gradient(#f1e8de, #e7dbcf); box-shadow: 0 1px 2px rgb(58 32 18 / 0.3), 3px 6px 10px rgb(58 32 18 / 0.28); font-family: 'Big Shoulders Stencil Display', 'PT Sans Narrow', sans-serif; font-weight: 700; font-size: 26px; line-height: 1; letter-spacing: 0.05em; text-transform: uppercase; color: #452820; rotate: -1.5deg; } .ds-name-strip::before { content: ''; position: absolute; left: 8px; top: 50%; width: 11px; height: 11px; margin-top: -5.5px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #f3dfa8, #c9a24f 45%, #8a6a2c); box-shadow: 0 1px 1px rgb(58 32 18 / 0.5); }"
+    },
+    {
+      "name": "Spec Chip",
+      "kind": "chip",
+      "refersTo": "spec-chip",
+      "description": "Paper chip hanging under the plinth with one key figure.",
+      "html": "<span class=\"ds-chip\">742 cc V-twin</span>",
+      "css": ".ds-chip { display: inline-grid; place-items: center; padding: 8px 12px 10px; background: linear-gradient(#e6dace, #ece2d9 40%, #e9ded4); border-radius: 0 0 8px 8px; box-shadow: inset 0 0 0 1px rgb(58 32 18 / 0.28), 0 2px 5px rgb(58 32 18 / 0.4); font-family: 'PT Sans Narrow', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 17px; letter-spacing: -0.015em; color: #24130b; white-space: nowrap; }"
+    },
+    {
+      "name": "Spec Sheet",
+      "kind": "card",
+      "refersTo": "sheet",
+      "description": "Pulp sheet taped to the wall, with notched sides and a ruled spec table.",
+      "html": "<div class=\"ds-sheet\"><span class=\"ds-tape\"></span><h2 class=\"ds-sheet-title\">Spec sheet</h2><div class=\"ds-row\"><span class=\"ds-term\">Engine</span><span class=\"ds-value\">742 cc liquid-cooled 52 degree V-twin</span></div></div>",
+      "css": ".ds-sheet { position: relative; max-width: 520px; padding: 28px; background: #f1e9e1; border-radius: 6px; box-shadow: 0 2px 3px rgb(58 32 18 / 0.2), 8px 22px 44px rgb(58 32 18 / 0.28); } .ds-tape { position: absolute; top: -14px; left: 8%; width: 110px; height: 30px; background: rgb(214 186 150 / 0.85); box-shadow: 0 1px 2px rgb(58 32 18 / 0.25); transform: rotate(-4deg); } .ds-sheet-title { margin: 0; padding-bottom: 16px; border-bottom: 3px solid #452820; font-family: 'Big Shoulders Stencil Display', 'PT Sans Narrow', sans-serif; font-weight: 700; font-size: 44px; line-height: 0.95; letter-spacing: 0.04em; text-transform: uppercase; color: #452820; } .ds-row { display: grid; grid-template-columns: 38% 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgb(69 40 32 / 0.2); } .ds-term { font-family: 'Roboto Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.04em; text-transform: uppercase; color: #614636; } .ds-value { font-family: 'Akshar', 'PT Sans Narrow', sans-serif; font-size: 19px; line-height: 1.25; color: #3b190d; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "Dakar Year Stamp",
+      "kind": "custom",
+      "refersTo": "dakar-stamp",
+      "description": "Crimson stencil year inked onto the punched Dakar strip.",
+      "html": "<div class=\"ds-dakar\"><span class=\"ds-stamp\">1986</span><span class=\"ds-rider\">Cyril Neveu</span></div>",
+      "css": ".ds-dakar { display: inline-grid; justify-items: center; gap: 6px; padding: 20px 24px; background: linear-gradient(#f1e8de, #e8dccf); } .ds-stamp { padding: 0.12em 0.2em 0.04em; border: 3px solid currentColor; border-radius: 4px; font-family: 'Big Shoulders Stencil Display', 'PT Sans Narrow', sans-serif; font-weight: 700; font-size: 46px; line-height: 1; letter-spacing: 0.04em; color: #aa283f; opacity: 0.9; mix-blend-mode: multiply; rotate: -4deg; } .ds-rider { font-family: 'Roboto Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.03em; text-transform: uppercase; color: #3b190d; }"
+    },
+    {
+      "name": "Owner Tag",
+      "kind": "card",
+      "refersTo": "owner-tag",
+      "description": "Luggage-tag card with a punched hole, used for owner checks.",
+      "html": "<div class=\"ds-tag\"><span class=\"ds-tag-hole\"></span><h3>The engine</h3><p>Valve clearances and the regulator are the usual checks.</p></div>",
+      "css": ".ds-tag { position: relative; width: 240px; padding: 2.4rem 1.4rem 1.5rem; background: #efe6dc; border-radius: 10px 10px 4px 4px; clip-path: polygon(14% 0, 86% 0, 100% 9%, 100% 100%, 0 100%, 0 9%); filter: drop-shadow(3px 8px 10px rgb(58 32 18 / 0.3)); } .ds-tag-hole { position: absolute; top: 0.9rem; left: 50%; width: 14px; height: 14px; margin-left: -7px; border-radius: 50%; background: #c6a284; box-shadow: inset 0 2px 3px rgb(58 32 18 / 0.5); } .ds-tag h3 { margin: 0; font-family: 'Roboto Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.04em; text-transform: uppercase; color: #452820; } .ds-tag p { margin: 0.6rem 0 0; font-family: 'Akshar', 'PT Sans Narrow', sans-serif; font-size: 1.08rem; line-height: 1.4; color: #3b190d; }"
+    },
+    {
+      "name": "Ink Link",
+      "kind": "custom",
+      "description": "Inherited-colour link with a faint underline that goes solid on hover.",
+      "html": "<a class=\"ds-link\" href=\"#\">Mihael Turkalj</a>",
+      "css": ".ds-link { color: #452820; text-decoration: underline; text-decoration-color: rgb(69 40 32 / 0.35); text-underline-offset: 3px; font-family: 'Roboto Condensed', 'Arial Narrow', sans-serif; } .ds-link:hover { text-decoration-color: currentColor; } .ds-link:focus-visible { outline: 3px solid #aa283f; outline-offset: 4px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Crank Automaton",
+    "overview": "The page is a paper automaton pinned to a kraft-board wall. The bike is a cut-paper model standing on a kraft plinth, and the box under it carries a paper kickstart lever. The visitor yanks the lever down past its catch and lets go; the model jolts, the last separated piece flies off, and the next assembly lifts off the model on a folded kraft strut held by a brass paper fastener, showing the crimson card it was cut from at its edge. Crimson threads run from brass pins on the lifted piece to paper labels naming what it is. Every surface is a material that exists on a workbench: kraft board, pulp paper, slot tabs, brads, screws, masking tape, thread, a punched strip, a luggage tag. Nothing glows, nothing is glass, and there is no dark studio.\n\nThe first viewport is not a responsive layout but a measured composition: the approved comp (2752 x 1536) is reproduced inside a container, and every size in it is comp pixels times one unit, `--u = 100cqw / 2752`, so the whole scene scales as one object. Scrolling only moves the page; the machine is driven by hand. Below the strip-down the page becomes ordinary document flow, but the materials continue: paper sheets and tags taped or pinned to the same kraft wall, settling onto it as they arrive.\n\nThe imagery is AI-generated cut paper (Nano Banana Pro via kie.ai, backgrounds removed with Recraft). The strip-down's part layers are cut from the differences between neighbouring keyframes by the mask and split scripts in `../flight-lab`, and every shipped raster embeds its provenance, with a `.json` sidecar beside each webp. The build is Vite 8, React 19 and TypeScript, with GSAP timelines and one GSAP ticker for the strip-down, plain CSS and @fontsource faces.\n\nDensity is low and the interface recedes. Type is stencil letterpress for anything that names a thing and condensed workhorse sans for anything that operates or labels. Ink is a warm brown-black, never neutral grey, and every shadow is tinted umber.",
+    "keyCharacteristics": [
+      "One kraft ground (tiled `assets/plates/kraft.jpg`, 430px tile) under everything, with the kraft colour as its fill.",
+      "A comp-unit hero: sizes are `calc(N * var(--u))`, positions are percentages of the comp frame from `layout.css`.",
+      "A hand-driven machine: a kickstart lever with a catch, a jolt on every kick, pieces that fly off and lift on struts.",
+      "Real paper devices: die-cut notches, slot tabs, brass brads, crimson thread, tape strips, punched perforations, tag holes.",
+      "Crimson spent on the current step, its threads, the one live instruction and ink stamps; everything else is kraft, paper and brown ink.",
+      "Soft, layered, umber shadows that read as paper lifted a few millimetres off board."
+    ],
+    "rules": [
+      {
+        "name": "The Current-Step Crimson Rule",
+        "body": "Crimson marks what is happening now (the active tab, the step number, the part lifting off, the threads to its labels), the one thing to do now (the kick arc and label), or is ink stamped on paper (the Dakar years). It never fills a panel, a section or a decorative band.",
+        "section": "colors"
+      },
+      {
+        "name": "The Umber Shadow Rule",
+        "body": "Every shadow and cut-edge darkening is a warm umber at an alpha: Umber Shadow for paper off the board, Contact Umber where the model meets the shelf. No black, no grey, no coloured glows.",
+        "section": "colors"
+      },
+      {
+        "name": "The Brass Fitting Rule",
+        "body": "Anything that fastens is brass: a round brad head is the three-stop brass gradient, a flat brad in SVG is Brass with a Brass Rim and a Brass Slot. No other metal appears.",
+        "section": "colors"
+      },
+      {
+        "name": "The Stencil Names Things Rule",
+        "body": "Stencil is for names and numbers: the title, assembly names, step numbers, section headings, Dakar years, plus the one instruction stencilled on the wall beside the lever. Button text, data labels, pointer labels and copy never use it.",
+        "section": "typography"
+      },
+      {
+        "name": "The Accepted Headline Rule",
+        "body": "The hero title is Big Shoulders Stencil Display, slightly taller and narrower than the comp's AI-drawn stencil lettering, which has no free-font match. The user accepted this on 2026-09-27; it is an accepted deviation from the comp, not a match, and future work should not try to \"correct\" it toward the comp with tracking or weight hacks.",
+        "section": "typography"
+      },
+      {
+        "name": "The Lift Earns the Shadow Rule",
+        "body": "A part at rest on the model has no shadow of its own; its drop shadow and brass pin appear only when it lifts (`data-lifted`), and the tyre contact shadows vanish from step 4 on, when the wheels are gone.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** size everything inside the hero in comp units (`calc(N * var(--u))`) and place it from the comp-measured region variables; never mix in rem or px there, except in the under-900px restack.",
+      "**Do** use the shared ease-out `cubic-bezier(0.23, 1, 0.32, 1)` for every CSS transition and settle; the GSAP strip-down keeps its own named eases (back.out for springs and lifts, power2.in for leaving).",
+      "**Do** make new surfaces out of workbench paper: kraft or pulp paper, notches, tape, brads, thread, punched holes, with the umber two-layer shadow.",
+      "**Do** keep the part name, step number and facts in live text; the strip-down images never carry information on their own.",
+      "**Do** run continuous motion only while it is on screen, and ship a reduced-motion path for any motion: every duration goes to 0, so kicks and tab jumps apply instantly with labels shown, with no jolt, sway or hint, and the settle is removed.",
+      "**Do** embed provenance in every generated raster and write a `.json` sidecar beside every webp."
+    ],
+    "donts": [
+      "**Don't** spend crimson on panels, section backgrounds or decoration; it marks the current step, its threads, the one live instruction, or an ink stamp.",
+      "**Don't** use black, grey or coloured shadows; use Umber Shadow or Contact Umber at an alpha.",
+      "**Don't** set button text, data labels, pointer labels or body copy in the stencil face.",
+      "**Don't** introduce a dark studio ground, glowing callouts or glossy official-ad imagery, and never a Honda logo.",
+      "**Don't** retune the hero title toward the comp's lettering; the stencil face is an accepted deviation.",
+      "**Don't** tie the strip-down to scroll again; scrolling only moves the page."
+    ]
+  }
+}

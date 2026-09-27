@@ -1,0 +1,20 @@
+node_modules
+dist
+.playwright-mcp
+*.log
+.env*
+
+# Impeccable working files are large (builds, review captures, reference photos).
+# Kept: the direction contract, the direction options, the design sidecar and the two approved comps.
+.impeccable/build/
+.impeccable/review/
+.impeccable/refs/
+.impeccable/questions/
+.impeccable/hook.cache.json
+.impeccable/decision/serve-start.*
+.impeccable/mocks/*
+!.impeccable/mocks/comp-2b.jpg
+!.impeccable/mocks/comp-2b.jpg.json
+!.impeccable/mocks/comp-3.jpg
+!.impeccable/mocks/comp-3.jpg.json
+!.impeccable/mocks/comp-3.prompt.txt

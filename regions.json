@@ -1,0 +1,331 @@
+{
+ "regions": [
+  {
+   "id": "kraft",
+   "kind": "texture",
+   "box": {
+    "x": 0.01308,
+    "y": 0.74674,
+    "w": 0.07812,
+    "h": 0.13997
+   },
+   "note": "clean kraft-board ground, fine fibres, no ink",
+   "grid": "A7:A8"
+  },
+  {
+   "id": "headline-card",
+   "kind": "chrome",
+   "box": {
+    "x": 0.03924,
+    "y": 0.07031,
+    "w": 0.21948,
+    "h": 0.61979
+   },
+   "note": "tall kraft paper card with a soft cast shadow, holding the title block",
+   "container": true,
+   "grid": "A0:C6"
+  },
+  {
+   "id": "headline",
+   "kind": "text",
+   "box": {
+    "x": 0.0585,
+    "y": 0.10286,
+    "w": 0.14862,
+    "h": 0.21484
+   },
+   "note": "stencil caps title XRV750 AFRICA TWIN on three lines, charcoal ink",
+   "grid": "A1:C3"
+  },
+  {
+   "id": "rule-top",
+   "kind": "chrome",
+   "box": {
+    "x": 0.05996,
+    "y": 0.33854,
+    "w": 0.16134,
+    "h": 0.00521
+   },
+   "note": "thin charcoal rule under the title",
+   "grid": "A3:C3"
+  },
+  {
+   "id": "subline",
+   "kind": "text",
+   "box": {
+    "x": 0.0585,
+    "y": 0.36263,
+    "w": 0.14135,
+    "h": 0.07096
+   },
+   "note": "subline 'Take it apart, one assembly at a time.' in a condensed sans, two lines",
+   "grid": "A3:B4"
+  },
+  {
+   "id": "rule-bottom",
+   "kind": "chrome",
+   "box": {
+    "x": 0.05996,
+    "y": 0.60286,
+    "w": 0.16134,
+    "h": 0.00521
+   },
+   "note": "thin charcoal rule above the note",
+   "grid": "A6:C6"
+  },
+  {
+   "id": "note",
+   "kind": "text",
+   "box": {
+    "x": 0.0585,
+    "y": 0.61458,
+    "w": 0.16025,
+    "h": 0.02539
+   },
+   "note": "small note 'Unofficial showcase \u00b7 RD07 \u00b7 1993-2003'",
+   "grid": "A6:C6"
+  },
+  {
+   "id": "bike",
+   "kind": "plate",
+   "box": {
+    "x": 0.3016,
+    "y": 0.09766,
+    "w": 0.42878,
+    "h": 0.5306
+   },
+   "note": "the complete cut-paper Honda XRV750 Africa Twin RD07 in white, red and blue tricolour, side view, standing on the plinth",
+   "grid": "D1:H6"
+  },
+  {
+   "id": "plinth",
+   "kind": "chrome",
+   "box": {
+    "x": 0.25981,
+    "y": 0.57812,
+    "w": 0.50509,
+    "h": 0.10417
+   },
+   "note": "a long shelf bar the width of the bike: a flat rectangle in the ground colour with a lighter top edge and a soft drop shadow",
+   "grid": "C5:H6"
+  },
+  {
+   "id": "plinth-shadow",
+   "kind": "chrome",
+   "note": "soft dark cast shadow on the kraft wall below the plinth",
+   "grid": "G7:H7",
+   "box": {
+    "x": 0.5814,
+    "y": 0.67708,
+    "w": 0.23256,
+    "h": 0.13021
+   }
+  },
+  {
+   "id": "spec-1",
+   "kind": "text",
+   "box": {
+    "x": 0.54142,
+    "y": 0.66342,
+    "w": 0.06831,
+    "h": 0.05403
+   },
+   "note": "small white paper tab reading '742 cc V-twin'",
+   "grid": "F6:G7"
+  },
+  {
+   "id": "spec-2",
+   "kind": "text",
+   "box": {
+    "x": 0.61119,
+    "y": 0.66342,
+    "w": 0.05705,
+    "h": 0.05403
+   },
+   "note": "small white paper tab reading '23 L tank'",
+   "grid": "G6:G7"
+  },
+  {
+   "id": "spec-3",
+   "kind": "text",
+   "box": {
+    "x": 0.6697,
+    "y": 0.66342,
+    "w": 0.07849,
+    "h": 0.05403
+   },
+   "note": "small white paper tab reading '21 / 17 in wheels'",
+   "grid": "G6:H7"
+  },
+  {
+   "id": "crank-box",
+   "kind": "plate",
+   "box": {
+    "x": 0.40988,
+    "y": 0.65365,
+    "w": 0.19077,
+    "h": 0.2474
+   },
+   "note": "a plain kraft-paper crank box hanging under the plinth with a narrow horizontal slot Placed as a transparent cut-out that overlaps its neighbours by design (the tyres sit on the plinth, the crank sits on its box); the box edges meet neighbouring parts, not cropped artwork.",
+   "grid": "E6:F8",
+   "bleed": true
+  },
+  {
+   "id": "crank-arm",
+   "kind": "plate",
+   "box": {
+    "x": 0.48256,
+    "y": 0.72396,
+    "w": 0.13808,
+    "h": 0.10742
+   },
+   "note": "a short kraft paper crank arm on a pivot ending in a round crimson knob Placed as a transparent cut-out that overlaps its neighbours by design (the tyres sit on the plinth, the crank sits on its box); the box edges meet neighbouring parts, not cropped artwork.",
+   "grid": "E7:G8",
+   "bleed": true
+  },
+  {
+   "id": "rail",
+   "kind": "chrome",
+   "box": {
+    "x": 0.78052,
+    "y": 0.0625,
+    "w": 0.11991,
+    "h": 0.86589
+   },
+   "note": "narrow vertical paper strip with two screws, the index spine, with its soft cast shadow on the wall",
+   "grid": "H0:I9"
+  },
+  {
+   "id": "rail-label",
+   "kind": "text",
+   "box": {
+    "x": 0.79688,
+    "y": 0.14909,
+    "w": 0.01817,
+    "h": 0.22721
+   },
+   "note": "vertical text 'HOW IT COMES APART' in condensed caps",
+   "grid": "H1:I3"
+  },
+  {
+   "id": "tab-01",
+   "kind": "control",
+   "box": {
+    "x": 0.81395,
+    "y": 0.15885,
+    "w": 0.1468,
+    "h": 0.06641
+   },
+   "note": "paper index tab reading '01 FAIRING', crimson and pulled out: the active step",
+   "grid": "I1:J2"
+  },
+  {
+   "id": "tab-02",
+   "kind": "control",
+   "box": {
+    "x": 0.81395,
+    "y": 0.22852,
+    "w": 0.1468,
+    "h": 0.06445
+   },
+   "note": "paper index tab reading '02 TANK & SEAT', kraft paper with a soft shadow",
+   "grid": "I2:J2"
+  },
+  {
+   "id": "tab-03",
+   "kind": "control",
+   "box": {
+    "x": 0.81395,
+    "y": 0.29622,
+    "w": 0.1468,
+    "h": 0.06445
+   },
+   "note": "paper index tab reading '03 EXHAUST', kraft paper with a soft shadow",
+   "grid": "I2:J3"
+  },
+  {
+   "id": "tab-04",
+   "kind": "control",
+   "box": {
+    "x": 0.81395,
+    "y": 0.36393,
+    "w": 0.1468,
+    "h": 0.06445
+   },
+   "note": "paper index tab reading '04 WHEELS', kraft paper with a soft shadow",
+   "grid": "I3:J4"
+  },
+  {
+   "id": "tab-05",
+   "kind": "control",
+   "box": {
+    "x": 0.81395,
+    "y": 0.43164,
+    "w": 0.1468,
+    "h": 0.06445
+   },
+   "note": "paper index tab reading '05 BRAKES', kraft paper with a soft shadow",
+   "grid": "I4:J4"
+  },
+  {
+   "id": "tab-06",
+   "kind": "control",
+   "box": {
+    "x": 0.81395,
+    "y": 0.49935,
+    "w": 0.1468,
+    "h": 0.0651
+   },
+   "note": "paper index tab reading '06 FRONT FORK', kraft paper with a soft shadow",
+   "grid": "I4:J5"
+  },
+  {
+   "id": "tab-07",
+   "kind": "control",
+   "box": {
+    "x": 0.81395,
+    "y": 0.56706,
+    "w": 0.1468,
+    "h": 0.06445
+   },
+   "note": "paper index tab reading '07 PRO-LINK', kraft paper with a soft shadow",
+   "grid": "I5:J6"
+  },
+  {
+   "id": "tab-08",
+   "kind": "control",
+   "box": {
+    "x": 0.81395,
+    "y": 0.63477,
+    "w": 0.1468,
+    "h": 0.06445
+   },
+   "note": "paper index tab reading '08 COOLING', kraft paper with a soft shadow",
+   "grid": "I6:J6"
+  },
+  {
+   "id": "tab-09",
+   "kind": "control",
+   "box": {
+    "x": 0.81395,
+    "y": 0.70247,
+    "w": 0.1468,
+    "h": 0.0651
+   },
+   "note": "paper index tab reading '09 ENGINE', kraft paper with a soft shadow",
+   "grid": "I7:J7"
+  },
+  {
+   "id": "tab-10",
+   "kind": "control",
+   "box": {
+    "x": 0.81395,
+    "y": 0.76888,
+    "w": 0.1468,
+    "h": 0.06641
+   },
+   "note": "paper index tab reading '10 FRAME', kraft paper with a soft shadow",
+   "grid": "I7:J8"
+  }
+ ]
+}

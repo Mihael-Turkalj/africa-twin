@@ -1,0 +1,7 @@
+{
+ "prompt": "Edit this website design mock-up. Remove the two large toothed gears and the long crank arm below the kraft-board plinth. In their place, put one small, plain paper crank: a slim kraft-paper crank box attached under the front of the plinth with a narrow horizontal slot, and a single short crank arm ending in a round crimson (#B3202A) knob, about the size of one of the spec tabs, clearly understated. Keep everything else exactly as it is: the headline card, the motorcycle, the plinth, the three spec tabs, the 'HOW IT COMES APART' rail with its ten tabs, all text, colours, lighting and layout.",
+ "derived_from": "comp-2.jpg (edit: gears replaced by a plain crank at the user's request)",
+ "model": "nano-banana-pro via kie.ai",
+ "approved": true,
+ "approval_note": "Approved by the user 2026-09-27 as the opening viewport (Comp 2 with the gears replaced by a plain crank at their request)."
+}
