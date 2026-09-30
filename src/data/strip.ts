@@ -63,11 +63,14 @@ export const tagAnchors: Record<number, { x: number; y: number; side: 'left' | '
 export const STEPS = 10
 
 const base = import.meta.env.BASE_URL
-export const stageUrl = (k: number) => `${base}strip/stage-${String(k).padStart(2, '0')}.webp`
-export const partUrl = (id: string) => `${base}strip/part-${id}.webp`
+// Phones get the half-size strip (1180 px wide); the full 2360 px is only worth it on big, sharp screens.
+// index.html preloads the first stage with the same rule.
+const size = window.innerWidth * (window.devicePixelRatio || 1) <= 1400 ? '-m' : ''
+export const stageUrl = (k: number) => `${base}strip/stage-${String(k).padStart(2, '0')}${size}.webp`
+export const partUrl = (id: string) => `${base}strip/part-${id}${size}.webp`
 /** The crimson card each piece is cut from, seen at its edge once it lifts off the wall. */
-export const backUrl = (id: string) => `${base}strip/back-${id}.webp`
-export const occluderUrl = (name: string) => `${base}strip/${name}.webp`
+export const backUrl = (id: string) => `${base}strip/back-${id}${size}.webp`
+export const occluderUrl = (name: string) => `${base}strip/${name}${size}.webp`
 
 export const referencePhotos = [
   {

@@ -1,5 +1,7 @@
 # XRV750 Africa Twin: Take It Apart
 
+![Three yanks of the kick-start lever: the fairing, then the tank and seat, then the exhaust come off with their labels](media/preview.webp)
+
 An unofficial showcase of one motorcycle, the 1993–2003 Honda XRV750 Africa Twin (RD07). The bike stands alone in the centre as a cut-paper model on a kraft shelf. Yank the kickstart lever down, like starting an old enduro, and it comes apart one assembly at a time, in workshop order: fairing, tank and seat, exhaust, wheels, brakes, front fork, Pro-Link, cooling, engine, and finally the bare frame. Each piece lifts off the wall on a paper strut, crimson threads point out its details on paper labels, and a card explains that assembly with checked facts. Scrolling just moves down the page; only the kick drives the bike. Below the strip-down are a spec sheet, the Dakar story and what owners check.
 
 **Live site:** https://mihael-turkalj.github.io/africa-twin/

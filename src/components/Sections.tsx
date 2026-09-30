@@ -1,4 +1,5 @@
 import { dakar, ownerNotes, sources, specRows } from '../data/sheet'
+import { allWork, lab } from '../data/lab'
 import { referencePhotos } from '../data/strip'
 
 export function SpecSheet() {
@@ -126,6 +127,27 @@ export function Footer() {
           </ul>
         </div>
       </div>
+      {/* the rest of the lab, so one visit leads to the next */}
+      <nav className="footer-lab" aria-labelledby="lab-title">
+        <h2 id="lab-title" className="footer-label">
+          More from the lab
+        </h2>
+        <ul className="footer-lab-list">
+          {lab
+            .filter((l) => l.id !== 'africa-twin')
+            .map((l) => (
+              <li key={l.id}>
+                <a href={l.href} className="ink-link">
+                  {l.title}
+                </a>
+                <span>{l.what}</span>
+              </li>
+            ))}
+        </ul>
+        <a href={allWork} className="ink-link footer-lab-all">
+          All work by Mihael Turkalj →
+        </a>
+      </nav>
     </footer>
   )
 }

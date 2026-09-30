@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import crankBox from '../../assets/plates/crank-box.png'
-import kickLever from '../../assets/plates/kick-lever.png'
+import crankBox from '../../assets/plates/crank-box.webp'
+import kickLever from '../../assets/plates/kick-lever.webp'
 import { assemblies, pad } from '../data/assemblies'
 import { MAX_POINTERS, pointers, type Pointer } from '../data/pointers'
 import { MAX_LAYERS, STEPS, backUrl, layers, occluderUrl, occluders, partUrl, pins, stageUrl, tagAnchors, type Layer } from '../data/strip'
@@ -110,8 +110,9 @@ export default function Hero() {
     list.scrollTo({ left: cur.offsetLeft - 16, behavior: 'smooth' })
   }, [step])
 
-  // Stages and pieces load after the first paint (stage 0 is preloaded in index.html) and are decoded
-  // ahead, so a kick never waits on an image.
+  // Stages and pieces load once the opening screen is up (stage 0 is preloaded in index.html): 1.5 s after
+  // the page has loaded, well before anyone has read the card and kicked. They are decoded ahead, so a kick
+  // never waits on an image.
   useEffect(() => {
     const keep: HTMLImageElement[] = []
     const load = (src: string) => {
@@ -120,7 +121,9 @@ export default function Hero() {
       img.decode().catch(() => {})
       keep.push(img)
     }
-    const t = window.setTimeout(() => {
+    let t = 0
+    const later = () => (t = window.setTimeout(loadAll, 1500))
+    const loadAll = () => {
       for (let k = 1; k <= STEPS; k++) {
         if (k < STEPS) load(stageUrl(k))
         for (const layer of layers[k] ?? []) {
@@ -129,8 +132,11 @@ export default function Hero() {
         }
         if (occluders[k]) load(occluderUrl(occluders[k]))
       }
-    }, 400)
+    }
+    if (document.readyState === 'complete') later()
+    else window.addEventListener('load', later, { once: true })
     return () => {
+      window.removeEventListener('load', later)
       window.clearTimeout(t)
       keep.length = 0
     }
@@ -598,14 +604,14 @@ export default function Hero() {
           <div key={b} className="bank">
             {Array.from({ length: MAX_LAYERS }, (_, i) => (
               <div key={i} className="lift" data-lifted="false" style={{ opacity: 0 }}>
-                <img className="back" src={backUrl(layers[1][0].id)} alt="" />
-                <img className="part" src={partUrl(layers[1][0].id)} alt="" />
+                <img className="back" src={backUrl(layers[1][0].id)} alt="" fetchPriority="low" />
+                <img className="part" src={partUrl(layers[1][0].id)} alt="" fetchPriority="low" />
                 <span className="brad-pin" />
               </div>
             ))}
           </div>
         ))}
-        <img className="occluder" src={occluderUrl(occluders[4])} alt="" style={{ opacity: 0 }} />
+        <img className="occluder" src={occluderUrl(occluders[4])} alt="" fetchPriority="low" style={{ opacity: 0 }} />
         <svg className="threads" viewBox={`0 0 ${PW} ${PH}`} aria-hidden="true">
           {Array.from({ length: MAX_POINTERS }, (_, i) => (
             <g key={i} className="thread" data-index={i} style={{ opacity: 0 }}>
